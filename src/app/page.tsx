@@ -1,109 +1,163 @@
-import type { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
-export const metadata: Metadata = {
-  title: "Freedom Horizon Financial — Financial Education & Services",
-  description:
-    "Freedom Horizon Financial is on a mission to erase financial illiteracy so families can dream again and build lasting wealth.",
-};
+function FadeIn({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -40px 0px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+const stats = [
+  {
+    num: "23",
+    mid: "out of",
+    end: "50",
+    desc: "States reached across the nation with our localized financial courses for high schoolers.",
+  },
+  {
+    num: "4.5",
+    mid: "",
+    end: "Billion",
+    desc: "People globally who lack basic financial literacy resources according to latest reports.",
+  },
+  {
+    num: "37",
+    mid: "",
+    end: "%",
+    desc: "Of Americans who can't cover a $400 emergency expense without confidence.",
+  },
+];
+
+const avatars = [
+  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80",
+  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80",
+  "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
+];
 
 export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Horizon gradient */}
+        {/* Horizon gradient background */}
         <div
           className="absolute inset-0 z-0"
           style={{
-            background: "linear-gradient(to bottom, #1e40af 0%, #3b82f6 60%, #f59e0b 100%)",
+            background:
+              "linear-gradient(to bottom, #1e3a8a 0%, #1d4ed8 45%, #f59e0b 85%, #d97706 100%)",
           }}
         />
-        {/* Background image */}
-        <div className="absolute inset-0 z-0">
+        {/* Silhouette image — people on ridge at sunrise */}
+        <div className="absolute inset-0 z-[1]">
           <Image
-            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1515191107209-c28698631303?w=1920&q=80"
             alt=""
             fill
-            className="object-cover opacity-40 mix-blend-overlay"
+            className="object-cover"
+            style={{ opacity: 0.45, mixBlendMode: "multiply" }}
             priority
           />
-          {/* Fade to surface at bottom */}
+          {/* Fade bottom to surface */}
           <div
-            className="absolute bottom-0 left-0 w-full h-32"
-            style={{ background: "linear-gradient(to top, #f4faff, transparent)" }}
-          />
-        </div>
-        {/* Sun ray glow */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-          <div
-            className="w-full h-full"
+            className="absolute bottom-0 left-0 w-full h-40"
             style={{
-              background:
-                "radial-gradient(circle, rgba(255,221,184,0.4) 0%, rgba(0,0,0,0) 70%)",
+              background: "linear-gradient(to top, #f4faff 0%, transparent 100%)",
             }}
           />
         </div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24">
-          <ScrollReveal>
-            <h1
-              className="font-display font-black text-white leading-[0.9] tracking-tighter drop-shadow-lg mb-8"
-              style={{ fontSize: "clamp(3rem, 8vw, 5.5rem)" }}
-            >
-              Your Financial <br />
-              Freedom Starts <br />
-              at the{" "}
-              <span style={{ color: "#ffddb8" }}>Horizon</span>
-            </h1>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <p
-              className="text-lg md:text-2xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed"
-              style={{ color: "rgba(219, 234, 254, 0.9)" }}
-            >
-              We believe everyone deserves to understand how money works. Freedom
-              Horizon Financial is on a mission to educate, empower, and help
-              families build lasting wealth.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.25}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link
-                href="/mission"
-                className="w-full sm:w-auto px-10 py-5 rounded-full font-bold text-lg transition-all hover:bg-blue-50"
-                style={{ background: "#ffffff", color: "#004ac6" }}
-              >
-                Discover Our Mission
-              </Link>
-              <Link
-                href="/system"
-                className="w-full sm:w-auto px-10 py-5 rounded-full font-bold text-lg transition-all hover:bg-white/10 flex items-center justify-center gap-2 text-white"
-                style={{ border: "2px solid rgba(255,255,255,0.4)" }}
-              >
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontVariationSettings: "'FILL' 1", fontSize: "1.25rem" }}
-                >
-                  play_circle
-                </span>
-                Watch System Overview
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        {/* Horizon line motif */}
+        {/* Warm sun glow */}
         <div
-          className="absolute bottom-0 left-0 w-full h-px blur-sm opacity-50"
+          className="absolute inset-0 z-[2] pointer-events-none"
           style={{
             background:
-              "linear-gradient(to right, transparent, #ffddb8, transparent)",
+              "radial-gradient(ellipse at 50% 65%, rgba(251,191,36,0.25) 0%, transparent 60%)",
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24 pb-32">
+          <motion.h1
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display font-black text-white drop-shadow-2xl mb-8 tracking-tighter leading-[0.9]"
+            style={{ fontSize: "clamp(3rem, 8vw, 5.5rem)" }}
+          >
+            Your Financial <br />
+            Freedom Starts <br />
+            at the{" "}
+            <span style={{ color: "#ffddb8" }}>Horizon</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="text-lg md:text-xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed"
+            style={{ color: "rgba(219,234,254,0.92)" }}
+          >
+            We believe everyone deserves to understand how money works. Freedom
+            Horizon Financial is on a mission to educate, empower, and help
+            families build lasting wealth.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-5"
+          >
+            <Link
+              href="/mission"
+              className="w-full sm:w-auto px-10 py-4 rounded-full font-bold text-lg transition-all hover:bg-blue-50 shadow-2xl"
+              style={{ background: "#ffffff", color: "#004ac6" }}
+            >
+              Discover Our Mission
+            </Link>
+            <Link
+              href="/system"
+              className="w-full sm:w-auto px-10 py-4 rounded-full font-bold text-lg transition-all hover:bg-white/10 flex items-center justify-center gap-2 text-white"
+              style={{ border: "2px solid rgba(255,255,255,0.45)" }}
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontVariationSettings: "'FILL' 1", fontSize: "1.25rem" }}
+              >
+                play_circle
+              </span>
+              Watch System Overview
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Horizon line */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-px blur-sm z-10"
+          style={{
+            background:
+              "linear-gradient(to right, transparent, rgba(255,221,184,0.6), transparent)",
           }}
         />
       </section>
@@ -112,120 +166,82 @@ export default function HomePage() {
       <section className="py-24" style={{ background: "#ffffff" }}>
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                value: (
-                  <>
-                    <span style={{ color: "#004ac6" }}>23</span>{" "}
-                    <span className="text-3xl font-medium" style={{ color: "#784b00" }}>out of</span>{" "}
-                    <span style={{ color: "#004ac6" }}>50</span>
-                  </>
-                ),
-                desc: "States reached across the nation with our localized financial courses for high schoolers.",
-              },
-              {
-                value: (
-                  <>
-                    <span style={{ color: "#004ac6" }}>4.5</span>{" "}
-                    <span className="text-3xl font-medium" style={{ color: "#784b00" }}>Billion</span>
-                  </>
-                ),
-                desc: "People globally who lack basic financial literacy resources according to latest reports.",
-              },
-              {
-                value: (
-                  <>
-                    <span style={{ color: "#004ac6" }}>37</span>
-                    <span className="text-3xl font-medium" style={{ color: "#784b00" }}>%</span>
-                  </>
-                ),
-                desc: "Of Americans who can't cover a $400 emergency expense without confidence.",
-              },
-            ].map((stat, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
+            {stats.map((s, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
                 <div
-                  className="group p-10 flex flex-col items-center text-center transition-all duration-500"
-                  style={{
-                    background: "#ecf5fb",
-                    borderRadius: "1rem",
-                  }}
+                  className="group p-10 flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl"
+                  style={{ background: "#ecf5fb", borderRadius: "1rem" }}
                 >
-                  <div
-                    className="font-display font-black text-5xl mb-4 tracking-tighter"
-                  >
-                    {stat.value}
+                  <div className="font-display font-black text-5xl mb-4 tracking-tighter">
+                    <span style={{ color: "#004ac6" }}>{s.num}</span>
+                    {s.mid && (
+                      <span className="text-3xl font-medium mx-2" style={{ color: "#784b00" }}>
+                        {s.mid}
+                      </span>
+                    )}
+                    <span style={{ color: "#004ac6" }}> {s.end.startsWith("%") ? "" : " "}</span>
+                    <span
+                      className={s.end.length <= 2 ? "text-5xl" : "text-3xl font-medium"}
+                      style={{ color: "#784b00" }}
+                    >
+                      {s.end}
+                    </span>
                   </div>
                   <div
                     className="w-12 h-1 mb-6 rounded-full transition-all duration-500 group-hover:w-24"
                     style={{ background: "#784b00", opacity: 0.3 }}
                   />
-                  <p
-                    className="font-medium text-lg leading-snug"
-                    style={{ color: "#434655" }}
-                  >
-                    {stat.desc}
+                  <p className="font-medium text-lg leading-snug" style={{ color: "#434655" }}>
+                    {s.desc}
                   </p>
                 </div>
-              </ScrollReveal>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── Impact Banner ── */}
-      <section
-        className="py-16 overflow-hidden relative"
-        style={{ background: "#004ac6" }}
-      >
+      <section className="py-16 overflow-hidden" style={{ background: "#004ac6" }}>
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-12">
-          <ScrollReveal>
-            <div className="flex-1">
-              <h2
-                className="font-display font-black tracking-tighter leading-none mb-4"
-                style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#ffffff" }}
+          <FadeIn className="flex-1">
+            <h2
+              className="font-display font-black tracking-tighter leading-none mb-4 text-white"
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            >
+              100,000+ Families <br />Educated Worldwide
+            </h2>
+            <p className="text-xl font-medium max-w-lg" style={{ color: "rgba(219,234,254,0.8)" }}>
+              Join a global movement dedicated to breaking the cycle of financial
+              uncertainty across North America.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1} className="flex gap-4 flex-shrink-0">
+            {avatars.map((src, i) => (
+              <div
+                key={i}
+                className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0"
+                style={{ border: "4px solid rgba(255,255,255,0.2)" }}
               >
-                100,000+ Families <br />Educated Worldwide
-              </h2>
-              <p
-                className="text-xl font-medium max-w-lg"
-                style={{ color: "rgba(219, 234, 254, 0.8)" }}
-              >
-                Join a global movement dedicated to breaking the cycle of
-                financial uncertainty across North America.
-              </p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <div className="flex gap-4 flex-shrink-0">
-              {[
-                "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80",
-                "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80",
-                "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
-              ].map((src, i) => (
-                <div
-                  key={i}
-                  className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0"
-                  style={{ border: "4px solid rgba(255,255,255,0.2)" }}
-                >
-                  <Image
-                    src={src}
-                    alt=""
-                    width={80}
-                    height={80}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
+                <Image
+                  src={src}
+                  alt=""
+                  width={80}
+                  height={80}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            ))}
+          </FadeIn>
         </div>
       </section>
 
       {/* ── Features Bento Grid ── */}
       <section className="py-32 overflow-hidden" style={{ background: "#ecf5fb" }}>
         <div className="max-w-7xl mx-auto px-8">
+          {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <ScrollReveal>
+            <FadeIn>
               <div className="max-w-2xl">
                 <span
                   className="inline-block px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest mb-6"
@@ -235,13 +251,16 @@ export default function HomePage() {
                 </span>
                 <h2
                   className="font-display font-black tracking-tighter leading-tight"
-                  style={{ fontSize: "clamp(2.5rem, 5vw, 3.75rem)", color: "#141d21" }}
+                  style={{
+                    fontSize: "clamp(2.5rem, 5vw, 3.75rem)",
+                    color: "#141d21",
+                  }}
                 >
                   The Freedom Horizon <br />Success System
                 </h2>
               </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
+            </FadeIn>
+            <FadeIn delay={0.1}>
               <p
                 className="text-xl max-w-sm font-medium leading-relaxed pb-2"
                 style={{ color: "#434655" }}
@@ -249,185 +268,144 @@ export default function HomePage() {
                 Our comprehensive approach combines modern tools with timeless
                 principles to build your financial foundation.
               </p>
-            </ScrollReveal>
+            </FadeIn>
           </div>
 
-          {/* Bento */}
-          <div
-            className="grid grid-cols-1 md:grid-cols-12 gap-6"
-            style={{ minHeight: "700px" }}
-          >
-            {/* Card 1 — col 4 */}
-            <ScrollReveal delay={0}>
+          {/* Bento — Row 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+            {/* Card 1 — 4 col */}
+            <FadeIn delay={0} className="md:col-span-4">
               <div
-                className="md:col-span-4 p-8 flex flex-col justify-between group transition-all duration-300 hover:shadow-2xl cursor-pointer h-full"
-                style={{ background: "#ffffff", borderRadius: "1rem" }}
+                className="p-8 flex flex-col group transition-all duration-300 hover:shadow-xl cursor-pointer h-full"
+                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "280px" }}
               >
-                <div>
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
-                    style={{ background: "#e0e9ef" }}
-                  >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ color: "#004ac6" }}
-                    >
-                      school
-                    </span>
-                  </div>
-                  <h3
-                    className="font-display font-bold text-2xl mb-4"
-                    style={{ color: "#141d21" }}
-                  >
-                    Professional Development
-                  </h3>
-                  <p style={{ color: "#434655" }}>
-                    Continuous training and certification programs for our field
-                    leaders and educators.
-                  </p>
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
+                  style={{ background: "#e0e9ef" }}
+                >
+                  <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>
+                    school
+                  </span>
                 </div>
+                <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>
+                  Professional Development
+                </h3>
+                <p style={{ color: "#434655" }}>
+                  Continuous training and certification programs for our field leaders and educators.
+                </p>
               </div>
-            </ScrollReveal>
+            </FadeIn>
 
-            {/* Card 2 — col 8 with image */}
-            <ScrollReveal delay={0.05}>
+            {/* Card 2 — 8 col with image */}
+            <FadeIn delay={0.05} className="md:col-span-8">
               <div
-                className="md:col-span-8 p-8 flex flex-col md:flex-row gap-8 items-center group transition-all duration-300 hover:shadow-2xl cursor-pointer h-full"
-                style={{ background: "#ffffff", borderRadius: "1rem" }}
+                className="p-8 flex flex-col md:flex-row gap-8 items-center group transition-all duration-300 hover:shadow-xl cursor-pointer h-full"
+                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "280px" }}
               >
                 <div className="flex-1">
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
                     style={{ background: "#e0e9ef" }}
                   >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ color: "#004ac6" }}
-                    >
+                    <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>
                       devices
                     </span>
                   </div>
-                  <h3
-                    className="font-display font-bold text-2xl mb-4"
-                    style={{ color: "#141d21" }}
-                  >
+                  <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>
                     Technology &amp; Marketing
                   </h3>
                   <p style={{ color: "#434655" }}>
-                    Proprietary digital platforms and marketing engines designed to
-                    simplify complex financial concepts for every family.
+                    Proprietary digital platforms and marketing engines designed to simplify complex
+                    financial concepts for every family.
                   </p>
                 </div>
                 <div
-                  className="flex-1 w-full h-48 rounded-xl overflow-hidden"
-                  style={{ background: "#ecf5fb", minWidth: "180px" }}
+                  className="w-full md:w-56 h-48 rounded-xl overflow-hidden flex-shrink-0"
+                  style={{ background: "#ecf5fb" }}
                 >
                   <Image
                     src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80"
-                    alt="Technology & Marketing"
-                    width={400}
+                    alt="Technology"
+                    width={224}
                     height={192}
                     className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500"
                   />
                 </div>
               </div>
-            </ScrollReveal>
+            </FadeIn>
+          </div>
 
-            {/* Card 3 — col 5 */}
-            <ScrollReveal delay={0.1}>
+          {/* Bento — Row 2 */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {/* Card 3 — 5 col */}
+            <FadeIn delay={0.1} className="md:col-span-5">
               <div
-                className="md:col-span-5 p-8 flex flex-col justify-between group transition-all duration-300 hover:shadow-2xl cursor-pointer h-full"
-                style={{ background: "#ffffff", borderRadius: "1rem" }}
+                className="p-8 flex flex-col group transition-all duration-300 hover:shadow-xl cursor-pointer h-full"
+                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "240px" }}
               >
-                <div>
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
-                    style={{ background: "#e0e9ef" }}
-                  >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ color: "#004ac6" }}
-                    >
-                      history_edu
-                    </span>
-                  </div>
-                  <h3
-                    className="font-display font-bold text-2xl mb-4"
-                    style={{ color: "#141d21" }}
-                  >
-                    Decades of Experience
-                  </h3>
-                  <p style={{ color: "#434655" }}>
-                    Backed by a leadership team with over 40 years of collective
-                    wisdom in the financial services industry.
-                  </p>
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
+                  style={{ background: "#e0e9ef" }}
+                >
+                  <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>
+                    history_edu
+                  </span>
                 </div>
+                <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>
+                  Decades of Experience
+                </h3>
+                <p style={{ color: "#434655" }}>
+                  Backed by a leadership team with over 40 years of collective wisdom in the
+                  financial services industry.
+                </p>
               </div>
-            </ScrollReveal>
+            </FadeIn>
 
-            {/* Card 4 — col 4 */}
-            <ScrollReveal delay={0.15}>
+            {/* Card 4 — 4 col */}
+            <FadeIn delay={0.15} className="md:col-span-4">
               <div
-                className="md:col-span-4 p-8 flex flex-col justify-between group transition-all duration-300 hover:shadow-2xl cursor-pointer h-full"
-                style={{ background: "#ffffff", borderRadius: "1rem" }}
+                className="p-8 flex flex-col group transition-all duration-300 hover:shadow-xl cursor-pointer h-full"
+                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "240px" }}
               >
-                <div>
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
-                    style={{ background: "#e0e9ef" }}
-                  >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ color: "#004ac6" }}
-                    >
-                      psychology
-                    </span>
-                  </div>
-                  <h3
-                    className="font-display font-bold text-2xl mb-4"
-                    style={{ color: "#141d21" }}
-                  >
-                    Mindset Training
-                  </h3>
-                  <p style={{ color: "#434655" }}>
-                    Focusing on the psychological foundation required for
-                    long-term wealth building.
-                  </p>
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
+                  style={{ background: "#e0e9ef" }}
+                >
+                  <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>
+                    psychology
+                  </span>
                 </div>
+                <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>
+                  Mindset Training
+                </h3>
+                <p style={{ color: "#434655" }}>
+                  Focusing on the psychological foundation required for long-term wealth building.
+                </p>
               </div>
-            </ScrollReveal>
+            </FadeIn>
 
-            {/* Card 5 — col 3 */}
-            <ScrollReveal delay={0.2}>
+            {/* Card 5 — 3 col */}
+            <FadeIn delay={0.2} className="md:col-span-3">
               <div
-                className="md:col-span-3 p-8 flex flex-col justify-between group transition-all duration-300 hover:shadow-2xl cursor-pointer h-full"
-                style={{ background: "#ffffff", borderRadius: "1rem" }}
+                className="p-8 flex flex-col group transition-all duration-300 hover:shadow-xl cursor-pointer h-full"
+                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "240px" }}
               >
-                <div>
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
-                    style={{ background: "#e0e9ef" }}
-                  >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ color: "#004ac6" }}
-                    >
-                      settings_input_component
-                    </span>
-                  </div>
-                  <h3
-                    className="font-display font-bold text-2xl mb-4"
-                    style={{ color: "#141d21" }}
-                  >
-                    System Powered
-                  </h3>
-                  <p style={{ color: "#434655" }}>
-                    A repeatable, scalable system that removes guesswork from
-                    financial success.
-                  </p>
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center mb-6"
+                  style={{ background: "#e0e9ef" }}
+                >
+                  <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>
+                    settings_input_component
+                  </span>
                 </div>
+                <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>
+                  System Powered
+                </h3>
+                <p style={{ color: "#434655" }}>
+                  A repeatable, scalable system that removes guesswork from financial success.
+                </p>
               </div>
-            </ScrollReveal>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -435,7 +413,7 @@ export default function HomePage() {
       {/* ── Horizon Progress Bar ── */}
       <section className="py-20" style={{ background: "#f4faff" }}>
         <div className="max-w-4xl mx-auto px-8 text-center">
-          <ScrollReveal>
+          <FadeIn>
             <span
               className="font-display font-bold tracking-widest uppercase text-xs mb-8 block"
               style={{ color: "#004ac6" }}
@@ -456,26 +434,23 @@ export default function HomePage() {
                 <span className="text-white font-bold text-sm">72%</span>
               </div>
             </div>
-            <p
-              className="font-medium italic"
-              style={{ color: "#434655" }}
-            >
+            <p className="font-medium italic" style={{ color: "#434655" }}>
               Over 360,000 lives impacted through our primary 2024 initiative.
             </p>
-          </ScrollReveal>
+          </FadeIn>
         </div>
       </section>
 
       {/* ── CTA Section ── */}
-      <section className="py-24 relative" style={{ background: "#f4faff" }}>
+      <section className="py-24" style={{ background: "#f4faff" }}>
         <div className="max-w-5xl mx-auto px-8">
-          <ScrollReveal>
+          <FadeIn>
             <div
               className="p-12 md:p-20 text-center relative overflow-hidden"
               style={{ background: "#ecf5fb", borderRadius: "1.5rem" }}
             >
-              {/* Subtle texture overlay */}
-              <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden rounded-3xl">
+              {/* Subtle texture */}
+              <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
                 <Image
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=60"
                   alt=""
@@ -487,10 +462,7 @@ export default function HomePage() {
               <div className="relative z-10">
                 <h2
                   className="font-display font-black tracking-tighter mb-8"
-                  style={{
-                    fontSize: "clamp(2rem, 4vw, 3rem)",
-                    color: "#141d21",
-                  }}
+                  style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#141d21" }}
                 >
                   Ready to change your financial trajectory?
                 </h2>
@@ -498,8 +470,8 @@ export default function HomePage() {
                   className="text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed"
                   style={{ color: "#434655" }}
                 >
-                  Join thousands of families who have found clarity and confidence
-                  through the Freedom Horizon mission.
+                  Join thousands of families who have found clarity and confidence through
+                  the Freedom Horizon mission.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
@@ -507,7 +479,7 @@ export default function HomePage() {
                     className="px-12 py-5 rounded-full font-bold text-lg text-white transition-all hover:opacity-90 shadow-xl"
                     style={{
                       background: "linear-gradient(135deg, #004ac6 0%, #2563eb 100%)",
-                      boxShadow: "0 8px 32px rgba(0, 74, 198, 0.25)",
+                      boxShadow: "0 8px 32px rgba(0,74,198,0.25)",
                     }}
                   >
                     Start Your Journey
@@ -515,17 +487,14 @@ export default function HomePage() {
                   <Link
                     href="/contact"
                     className="px-12 py-5 rounded-full font-bold text-lg transition-all hover:bg-white shadow-sm"
-                    style={{
-                      background: "#ffffff",
-                      color: "#141d21",
-                    }}
+                    style={{ background: "#ffffff", color: "#141d21" }}
                   >
                     Talk to an Educator
                   </Link>
                 </div>
               </div>
             </div>
-          </ScrollReveal>
+          </FadeIn>
         </div>
       </section>
     </>
