@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── FHF Real Brand Palette ── */
+    --fhf-navy:        #1a2d5a;
+    --fhf-blue:        #2e6db4;
+    --fhf-sky:         #7ab8d9;
+    --fhf-sky-light:   #b8d9ed;
+    --fhf-off-white:   #f5f8fc;
+    --fhf-light-bg:    #eaf3f9;
+    --fhf-rule:        #c5d8e8;
+    --fhf-ink:         #1a2d5a;
+    --fhf-ink-mid:     #2e4a7a;
+    --fhf-ink-light:   #5a7a9a;
+
+    /* ── Luminous Horizon Surface System ── */
+    --surface:           #f4faff;
+    --surface-low:       #ecf5fb;
+    --surface-card:      #ffffff;
+    --surface-high:      #e0e9ef;
+    --surface-highest:   #dbe4ea;
+    --on-surface:        #141d21;
+    --outline-variant:   #c5d8e8;
+
+    /* ── Luminous Horizon Brand Blues ── */
+    --lh-primary:        #004ac6;
+    --lh-primary-c:      #2563eb;
+
+    /* ── shadcn/ui tokens ── */
+    --background:        210 40% 98%;
+    --foreground:        222 47% 22%;
+    --card:              0 0% 100%;
+    --card-foreground:   222 47% 22%;
+    --popover:           0 0% 100%;
+    --popover-foreground:222 47% 22%;
+    --primary:           213 59% 44%;
+    --primary-foreground:0 0% 100%;
+    --secondary:         210 40% 93%;
+    --secondary-foreground:222 47% 22%;
+    --muted:             210 40% 96%;
+    --muted-foreground:  213 20% 45%;
+    --accent:            200 50% 65%;
+    --accent-foreground: 222 47% 22%;
+    --destructive:       0 84% 60%;
+    --destructive-foreground:0 0% 100%;
+    --border:            210 30% 82%;
+    --input:             210 30% 82%;
+    --ring:              213 59% 44%;
+    --radius:            0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    @apply antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--fhf-navy);
+  }
+
+  ::selection {
+    background-color: var(--fhf-sky-light);
+    color: var(--fhf-navy);
+  }
+}
+
+@layer utilities {
+  /* ─── Backgrounds ─────────────────────────────── */
+
+  .bg-fhf-hero {
+    background: linear-gradient(
+      160deg,
+      rgba(0, 74, 198, 0.94) 0%,
+      rgba(26, 45, 90, 0.92) 35%,
+      rgba(37, 99, 235, 0.80) 65%,
+      rgba(122, 184, 217, 0.30) 88%,
+      rgba(122, 184, 217, 0.10) 100%
+    );
+  }
+
+  .bg-fhf-dark {
+    background-color: #1a2d5a;
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 20px,
+        rgba(255, 255, 255, 0.015) 20px,
+        rgba(255, 255, 255, 0.015) 21px
+      ),
+      linear-gradient(160deg, #0f1d45 0%, #1a2d5a 50%, #1e3568 100%);
+  }
+
+  .bg-fhf-cream {
+    background-color: var(--surface);
+  }
+
+  .bg-fhf-light {
+    background-color: var(--surface-low);
+  }
+
+  /* Luminous Horizon signature gradient — for CTAs and hero sections */
+  .bg-lh-gradient {
+    background: linear-gradient(135deg, var(--lh-primary) 0%, var(--lh-primary-c) 100%);
+  }
+
+  .bg-fhf-gold-cta {
+    background-color: #1a2d5a;
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 20px,
+        rgba(255, 255, 255, 0.015) 20px,
+        rgba(255, 255, 255, 0.015) 21px
+      ),
+      linear-gradient(135deg, #0f1d45 0%, #1a2d5a 60%, #004ac6 100%);
+  }
+
+  /* ─── Typography ──────────────────────────────── */
+
+  .font-display {
+    font-family: var(--font-manrope), system-ui, sans-serif;
+  }
+
+  .font-body {
+    font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  }
+
+  .text-editorial {
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .text-eyebrow {
+    font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #004ac6 0%, #2563eb 100%);
+  }
+
+  .fhf-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #2e6db4 0%, #7ab8d9 100%);
+  }
+
+  /* ─── Decorative ──────────────────────────────── */
+
+  /* Blue rule line */
+  .rule-gold {
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--lh-primary) 0%, var(--lh-primary-c) 100%);
+    flex-shrink: 0;
+  }
+
+  /* Ghost border (accessibility fallback) */
+  .border-ghost {
+    border: 1px solid rgba(197, 216, 232, 0.15);
+  }
+
+  /* ─── Interaction ─────────────────────────────── */
+
+  .hover-lift {
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 40px 60px rgba(20, 29, 33, 0.06);
+  }
+
+  /* ─── Section spacing ─────────────────────────── */
+
+  .section-pad {
+    @apply py-20 lg:py-28;
+  }
+
+  .section-pad-lg {
+    @apply py-24 lg:py-36;
+  }
+
+  .section-alt {
+    background-color: var(--surface-low);
+  }
+
+  /* ─── Button styles ────────────────────────────── */
+
+  /* Signature gradient primary button */
+  .btn-primary-lh {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-sm text-white;
+    @apply transition-all duration-200;
+    background: linear-gradient(135deg, var(--lh-primary) 0%, var(--lh-primary-c) 100%);
+    box-shadow: 0 4px 20px rgba(0, 74, 198, 0.25);
+  }
+  .btn-primary-lh:hover {
+    box-shadow: 0 8px 30px rgba(0, 74, 198, 0.35);
+    transform: translateY(-1px);
+  }
+
+  /* Secondary button */
+  .btn-secondary-lh {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-sm;
+    @apply transition-all duration-200;
+    background: var(--surface-highest);
+    color: var(--lh-primary);
+  }
+  .btn-secondary-lh:hover {
+    background: var(--surface-high);
+  }
+
+  /* ─── Legacy gradient aliases ─────────────────── */
+
+  .fhf-gradient-hero { @apply bg-fhf-hero; }
+  .fhf-gradient-dark { @apply bg-fhf-dark; }
+  .fhf-gradient-gold { @apply bg-fhf-gold-cta; }
+
+  /* ─── Diagnostic textures ─────────────────────── */
+
+  .bg-diagonal-lines {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 12px,
+      rgba(46, 109, 180, 0.04) 12px,
+      rgba(46, 109, 180, 0.04) 13px
+    );
+  }
+
+  .bg-diagonal-dark {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 18px,
+      rgba(255, 255, 255, 0.02) 18px,
+      rgba(255, 255, 255, 0.02) 19px
+    );
+  }
+}
