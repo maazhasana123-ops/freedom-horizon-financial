@@ -180,14 +180,14 @@ export default function MissionPage() {
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
             <span className="inline-block px-3 py-1 text-xs font-bold tracking-widest uppercase rounded-full mb-6"
-              style={{ background: "rgba(255,255,255,0.05)", color: "#475569" }}>
+              style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }}>
               The Objective
             </span>
             <h2 className="font-display font-extrabold mb-6 text-white"
               style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", letterSpacing: "-0.02em" }}>
               Building Critical Mass
             </h2>
-            <p className="text-lg mb-10 leading-relaxed" style={{ color: "#475569" }}>
+            <p className="text-lg mb-10 leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
               To win this war on illiteracy, we need an army of educators. We are rapidly expanding our network of licensed agents committed to the mission.
             </p>
             <div className="space-y-8">
@@ -202,8 +202,8 @@ export default function MissionPage() {
               </div>
               <div>
                 <div className="flex justify-between items-end mb-3">
-                  <span className="font-bold text-sm tracking-widest uppercase" style={{ color: "#1e293b" }}>Target</span>
-                  <span className="text-2xl font-bold" style={{ color: "#1e293b" }}>5,000+</span>
+                  <span className="font-bold text-sm tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.3)" }}>Target</span>
+                  <span className="text-2xl font-bold" style={{ color: "rgba(255,255,255,0.3)" }}>5,000+</span>
                 </div>
                 <div className="h-3 w-full rounded-full" style={{ background: "rgba(255,255,255,0.04)" }} />
               </div>
@@ -214,7 +214,7 @@ export default function MissionPage() {
               style={{ background: "rgba(255,255,255,0.03)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", borderRadius: "1.25rem", border: "1px solid rgba(255,255,255,0.07)" }}>
               <div className="font-display font-bold text-white mb-2" style={{ fontSize: "6rem", lineHeight: 1 }}>10X</div>
               <div className="text-sm font-bold uppercase tracking-[0.2em] mb-6" style={{ color: "#3b82f6" }}>Expansion Goal</div>
-              <p className="italic text-lg" style={{ color: "#475569" }}>
+              <p className="italic text-lg" style={{ color: "rgba(255,255,255,0.5)" }}>
                 &ldquo;When we reach critical mass, the ripple effect of financial literacy will be unstoppable.&rdquo;
               </p>
             </div>
