@@ -1,11 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
 import { MobileNav } from "./mobile-nav";
+
+// Pages whose hero section has a dark background — nav starts white
+const DARK_HERO_PAGES = ["/", "/mission", "/system"];
 
 /* FHF Logo SVG — wave + sun mark */
 function FHFLogoMark({ className }: { className?: string }) {
@@ -48,6 +52,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+  const hasDarkHero = DARK_HERO_PAGES.includes(pathname);
 
   useEffect(() => {
     setMounted(true);
@@ -63,6 +69,8 @@ export function Header() {
   }, [mobileOpen]);
 
   const isScrolled = mounted && scrolled;
+  // Show white nav text only when at top of a dark-hero page
+  const useLightNav = !isScrolled && hasDarkHero;
 
   return (
     <>
@@ -73,15 +81,22 @@ export function Header() {
         style={
           isScrolled
             ? {
-                background: "rgba(244, 250, 255, 0.88)",
+                background: "rgba(244, 250, 255, 0.92)",
                 backdropFilter: "blur(16px)",
                 WebkitBackdropFilter: "blur(16px)",
                 boxShadow: "0 1px 0 rgba(195, 198, 215, 0.4)",
               }
-            : {
-                background: "rgba(244, 250, 255, 0.10)",
+            : useLightNav
+            ? {
+                background: "rgba(10, 22, 40, 0.15)",
                 backdropFilter: "blur(12px)",
                 WebkitBackdropFilter: "blur(12px)",
+              }
+            : {
+                background: "rgba(244, 250, 255, 0.92)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                boxShadow: "0 1px 0 rgba(195, 198, 215, 0.3)",
               }
         }
       >
@@ -109,13 +124,13 @@ export function Header() {
               <div className="leading-none">
                 <div
                   className="font-display font-bold text-base tracking-tight leading-none transition-colors duration-300"
-                  style={{ color: isScrolled ? "#1a2d5a" : "#004ac6" }}
+                  style={{ color: useLightNav ? "#ffffff" : "#1a2d5a" }}
                 >
                   Freedom Horizon
                 </div>
                 <div
                   className="text-eyebrow mt-0.5 transition-colors duration-300"
-                  style={{ color: isScrolled ? "#2e6db4" : "#7ab8d9" }}
+                  style={{ color: useLightNav ? "rgba(181,208,253,0.85)" : "#2e6db4" }}
                 >
                   Financial
                 </div>
@@ -134,9 +149,9 @@ export function Header() {
                     "after:absolute after:bottom-0 after:left-4 after:right-4 after:h-0.5",
                     "after:scale-x-0 after:transition-transform after:duration-200 after:origin-left",
                     "hover:after:scale-x-100",
-                    isScrolled
-                      ? "text-fhf-ink-mid hover:text-fhf-navy after:bg-fhf-blue"
-                      : "text-white/80 hover:text-white after:bg-white/50"
+                    useLightNav
+                      ? "text-white/80 hover:text-white after:bg-white/50"
+                      : "text-fhf-ink-mid hover:text-fhf-navy after:bg-fhf-blue"
                   )}
                 >
                   {link.label}
@@ -151,7 +166,7 @@ export function Header() {
                 className={cn(
                   "text-sm font-medium font-body tracking-wide transition-colors duration-200",
                   "focus-visible:outline-none focus-visible:ring-2",
-                  isScrolled ? "text-fhf-ink-light hover:text-fhf-navy" : "text-white/70 hover:text-white"
+                  useLightNav ? "text-white/70 hover:text-white" : "text-fhf-ink-light hover:text-fhf-navy"
                 )}
               >
                 Contact
@@ -159,7 +174,7 @@ export function Header() {
 
               <span
                 className="w-px h-4"
-                style={{ background: isScrolled ? "#c5d8e8" : "rgba(255,255,255,0.2)" }}
+                style={{ background: useLightNav ? "rgba(255,255,255,0.2)" : "#c5d8e8" }}
               />
 
               <Link
@@ -181,7 +196,7 @@ export function Header() {
               className={cn(
                 "md:hidden w-10 h-10 flex items-center justify-center transition-colors",
                 "focus-visible:outline-none focus-visible:ring-2",
-                isScrolled ? "text-fhf-navy" : "text-white"
+                useLightNav ? "text-white" : "text-fhf-navy"
               )}
               aria-label="Open navigation menu"
               aria-expanded={mobileOpen}
