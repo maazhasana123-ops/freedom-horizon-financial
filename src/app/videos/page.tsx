@@ -157,9 +157,9 @@ export default function VideosPage() {
                   {/* Play overlay */}
                   <div className="absolute inset-0 flex items-center justify-center" style={{ background: "rgba(20, 29, 33, 0.05)" }}>
                     <div
-                      className="w-24 h-24 rounded-full flex items-center justify-center"
+                      className="w-24 h-24 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer pulse-gold"
                       style={{
-                        background: "rgba(255,255,255,0.2)",
+                        background: "rgba(255,255,255,0.22)",
                         backdropFilter: "blur(16px)",
                         border: "1px solid rgba(255,255,255,0.4)",
                         boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
@@ -343,7 +343,7 @@ export default function VideosPage() {
             {educationalVideos.map((video, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
                 <div
-                  className="p-6 flex flex-col group transition-all duration-500 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)]"
+                  className="p-6 flex flex-col group card-hover-glow cursor-pointer overflow-hidden"
                   style={{ background: "#ffffff", borderRadius: "1rem" }}
                 >
                   <div
@@ -354,19 +354,27 @@ export default function VideosPage() {
                       src={video.thumb}
                       alt={video.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="object-cover group-hover:scale-108 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "rgba(20, 29, 33, 0.2)" }}>
-                      <span
-                        className="material-symbols-outlined text-white"
-                        style={{ fontSize: "2.5rem" }}
-                      >
-                        play_arrow
-                      </span>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300" style={{ background: "rgba(20, 29, 33, 0.35)" }}>
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                        style={{ background: "rgba(255,255,255,0.25)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.4)" }}>
+                        <span
+                          className="material-symbols-outlined text-white"
+                          style={{ fontSize: "1.5rem", fontVariationSettings: "'FILL' 1" }}
+                        >
+                          play_arrow
+                        </span>
+                      </div>
+                    </div>
+                    {/* Duration badge */}
+                    <div className="absolute bottom-2 right-2 px-2 py-0.5 text-xs font-bold text-white rounded"
+                      style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(8px)" }}>
+                      {video.duration}
                     </div>
                   </div>
                   <h4
-                    className="font-display font-bold text-lg transition-colors group-hover:text-[#004ac6]"
+                    className="font-display font-bold text-lg transition-colors duration-200 group-hover:text-[#004ac6]"
                     style={{ color: "#141d21" }}
                   >
                     {video.title}
@@ -415,7 +423,7 @@ export default function VideosPage() {
                 </p>
                 <Link
                   href="/get-started"
-                  className="inline-block bg-white font-bold text-lg px-12 py-5 rounded-full shadow-lg hover:bg-blue-50 transition-all"
+                  className="relative inline-block bg-white font-bold text-lg px-12 py-5 rounded-full shadow-lg hover:scale-105 transition-all overflow-hidden shimmer-on-hover"
                   style={{ color: "#004ac6", boxShadow: "0 8px 32px rgba(30, 64, 175, 0.4)" }}
                 >
                   Book a Video Consultation

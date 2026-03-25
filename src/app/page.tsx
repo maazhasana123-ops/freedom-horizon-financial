@@ -52,6 +52,8 @@ export default function HomePage() {
         </div>
         {/* Sun glow */}
         <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 65%, rgba(251,191,36,0.25) 0%, transparent 60%)" }} />
+        {/* Ambient mesh */}
+        <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse at 15% 40%, rgba(37,99,235,0.12) 0%, transparent 45%), radial-gradient(ellipse at 85% 30%, rgba(0,74,198,0.1) 0%, transparent 40%)" }} />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center" style={{ paddingTop: "9rem", paddingBottom: "8rem" }}>
           <motion.p
@@ -96,15 +98,15 @@ export default function HomePage() {
           >
             <Link
               href="/mission"
-              className="w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg transition-all hover:bg-blue-50 shadow-2xl"
+              className="relative w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg transition-all hover:scale-105 hover:shadow-2xl shadow-2xl overflow-hidden shimmer-on-hover"
               style={{ background: "#ffffff", color: "#004ac6" }}
             >
               Discover Our Mission
             </Link>
             <Link
               href="/system"
-              className="w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg transition-all hover:bg-white/10 flex items-center justify-center gap-2 text-white"
-              style={{ border: "2px solid rgba(255,255,255,0.45)" }}
+              className="w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg transition-all hover:bg-white/15 flex items-center justify-center gap-2 text-white hover:scale-105"
+              style={{ border: "2px solid rgba(255,255,255,0.45)", backdropFilter: "blur(8px)" }}
             >
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1", fontSize: "1.25rem" }}>
                 play_circle
@@ -148,7 +150,7 @@ export default function HomePage() {
             ].map((s, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div
-                  className="group flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl"
+                  className="relative group flex flex-col items-center text-center overflow-hidden shimmer-on-hover card-hover-glow cursor-pointer"
                   style={{ background: "#ecf5fb", borderRadius: "1rem", padding: "2.5rem" }}
                 >
                   <p className="font-body font-bold text-xs uppercase tracking-widest mb-3" style={{ color: "#784b00" }}>
@@ -182,14 +184,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Image */}
             <FadeIn delay={0}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: "4/3" }}>
+              <div className="group relative rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: "4/3" }}>
                 <Image
                   src="https://images.unsplash.com/photo-1513001900722-370f803f498d?w=800&q=80"
                   alt="Financial education books and study materials"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,74,198,0.15), transparent)" }} />
+                <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(135deg, rgba(0,74,198,0.15), transparent)" }} />
+                {/* Shimmer line on bottom */}
+                <div className="absolute bottom-0 left-0 w-full h-1" style={{ background: "linear-gradient(90deg, transparent, rgba(0,74,198,0.6), transparent)" }} />
               </div>
             </FadeIn>
             {/* Text */}
@@ -278,14 +282,15 @@ export default function HomePage() {
             </FadeIn>
             {/* Image */}
             <FadeIn delay={0.12}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: "4/3" }}>
+              <div className="group relative rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: "4/3" }}>
                 <Image
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
                   alt="FHF team collaborating"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, transparent, rgba(0,74,198,0.1))" }} />
+                <div className="absolute bottom-0 left-0 w-full h-1" style={{ background: "linear-gradient(90deg, transparent, rgba(255,221,184,0.6), transparent)" }} />
               </div>
             </FadeIn>
           </div>
@@ -362,21 +367,22 @@ export default function HomePage() {
           {/* Row 1 */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
             <FadeIn delay={0} className="md:col-span-4">
-              <div className="p-10 flex flex-col group transition-all duration-300 hover:shadow-xl cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "300px" }}>
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "#e0e9ef" }}>
+              <div className="relative group p-10 flex flex-col overflow-hidden card-hover-glow shimmer-on-hover cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "300px" }}>
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8 transition-transform duration-300 group-hover:scale-110" style={{ background: "linear-gradient(135deg, #e0e9ef, #d0e2f0)" }}>
                   <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>school</span>
                 </div>
                 <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>Professional Development</h3>
                 <p className="font-body leading-relaxed" style={{ color: "#434655" }}>
                   Monthly events, weekly webinars, ongoing training, and mentorship to keep you growing and on track.
                 </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 opacity-0 hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(90deg, #004ac6, #2563eb)" }} />
               </div>
             </FadeIn>
 
             <FadeIn delay={0.08} className="md:col-span-8">
-              <div className="p-10 flex flex-col md:flex-row gap-8 items-center group transition-all duration-300 hover:shadow-xl cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "300px" }}>
+              <div className="relative group p-10 flex flex-col md:flex-row gap-8 items-center overflow-hidden card-hover-glow shimmer-on-hover cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "300px" }}>
                 <div className="flex-1">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "#e0e9ef" }}>
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "linear-gradient(135deg, #e0e9ef, #d0e2f0)" }}>
                     <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>devices</span>
                   </div>
                   <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>Technology &amp; Marketing</h3>
@@ -384,15 +390,16 @@ export default function HomePage() {
                     Build your brand with world-class digital tools, marketing systems, and lead generation support from day one.
                   </p>
                 </div>
-                <div className="w-full md:w-64 h-52 rounded-xl overflow-hidden flex-shrink-0">
+                <div className="w-full md:w-64 h-52 rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
                   <Image
                     src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80"
                     alt="Technology & Marketing"
                     width={256}
                     height={208}
-                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                    className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-all duration-700 hover:scale-105"
                   />
                 </div>
+                <div className="absolute bottom-0 left-0 w-full h-1 opacity-0 hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(90deg, #004ac6, #2563eb)" }} />
               </div>
             </FadeIn>
           </div>
@@ -400,38 +407,41 @@ export default function HomePage() {
           {/* Row 2 */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             <FadeIn delay={0.05} className="md:col-span-5">
-              <div className="p-10 flex flex-col group transition-all duration-300 hover:shadow-xl cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "260px" }}>
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "#e0e9ef" }}>
+              <div className="relative group p-10 flex flex-col overflow-hidden card-hover-glow shimmer-on-hover cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "260px" }}>
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "linear-gradient(135deg, #e0e9ef, #d0e2f0)" }}>
                   <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>history_edu</span>
                 </div>
                 <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>Decades of Experience</h3>
                 <p className="font-body leading-relaxed" style={{ color: "#434655" }}>
                   Our leadership team has decades of combined experience, guiding you with confidence and proven strategies.
                 </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 opacity-0 hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(90deg, #004ac6, #2563eb)" }} />
               </div>
             </FadeIn>
 
             <FadeIn delay={0.1} className="md:col-span-4">
-              <div className="p-10 flex flex-col group transition-all duration-300 hover:shadow-xl cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "260px" }}>
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "#e0e9ef" }}>
+              <div className="relative group p-10 flex flex-col overflow-hidden card-hover-glow shimmer-on-hover cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "260px" }}>
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "linear-gradient(135deg, #e0e9ef, #d0e2f0)" }}>
                   <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>self_improvement</span>
                 </div>
                 <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>Personal Development</h3>
                 <p className="font-body leading-relaxed" style={{ color: "#434655" }}>
                   Our leadership program elevates you to be your personal best in every area of business and life.
                 </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 opacity-0 hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(90deg, #004ac6, #2563eb)" }} />
               </div>
             </FadeIn>
 
             <FadeIn delay={0.15} className="md:col-span-3">
-              <div className="p-10 flex flex-col group transition-all duration-300 hover:shadow-xl cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "260px" }}>
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "#e0e9ef" }}>
+              <div className="relative group p-10 flex flex-col overflow-hidden card-hover-glow shimmer-on-hover cursor-pointer h-full" style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "260px" }}>
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-8" style={{ background: "linear-gradient(135deg, #e0e9ef, #d0e2f0)" }}>
                   <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>settings_input_component</span>
                 </div>
                 <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>System Powered</h3>
                 <p className="font-body leading-relaxed" style={{ color: "#434655" }}>
                   Every area of our business has an easy-to-learn, step-by-step process so you can focus on growth—not trial and error.
                 </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 opacity-0 hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(90deg, #004ac6, #2563eb)" }} />
               </div>
             </FadeIn>
           </div>
@@ -488,14 +498,14 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="/get-started"
-                    className="px-12 py-5 rounded-full font-bold font-body text-lg text-white transition-all hover:opacity-90 shadow-xl"
+                    className="relative overflow-hidden px-12 py-5 rounded-full font-bold font-body text-lg text-white transition-all hover:scale-105 shadow-xl shimmer-on-hover pulse-glow"
                     style={{ background: "linear-gradient(135deg, #004ac6 0%, #2563eb 100%)", boxShadow: "0 8px 32px rgba(0,74,198,0.25)" }}
                   >
                     Start Your Journey
                   </Link>
                   <Link
                     href="/contact"
-                    className="px-12 py-5 rounded-full font-bold font-body text-lg transition-all hover:bg-white shadow-sm"
+                    className="relative overflow-hidden px-12 py-5 rounded-full font-bold font-body text-lg transition-all hover:shadow-md hover:scale-105 shimmer-on-hover shadow-sm"
                     style={{ background: "#ffffff", color: "#141d21" }}
                   >
                     Talk to an Educator

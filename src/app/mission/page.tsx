@@ -159,8 +159,10 @@ export default function MissionPage() {
             { icon: "account_balance", num: "02", title: "The Financial Industry Itself", body: "The industry is built on complexity and high barriers to entry. It often prioritizes profit over people, keeping the best strategies behind closed doors for only the ultra-wealthy." },
           ].map((force, i) => (
             <ScrollReveal key={i} delay={i * 0.12}>
-              <div className="p-10 h-full"
+              <div className="relative p-10 h-full card-hover-glow-dark overflow-hidden"
                 style={{ background: "rgba(255,255,255,0.05)", borderRadius: "1.25rem", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none opacity-20"
+                  style={{ background: "radial-gradient(circle, rgba(96,165,250,0.4) 0%, transparent 70%)", transform: "translate(30%, -30%)" }} />
                 <div className="flex items-center gap-4 mb-6">
                   <span className="font-display font-bold text-5xl select-none" style={{ color: "rgba(255,255,255,0.1)" }}>{force.num}</span>
                   <span className="material-symbols-outlined" style={{ color: "#60a5fa", fontVariationSettings: "'FILL' 1", fontSize: "2.25rem" }}>{force.icon}</span>
@@ -258,14 +260,15 @@ export default function MissionPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {pillars.map((pillar, i) => (
               <ScrollReveal key={i} delay={i * 0.07}>
-                <div className="p-8 flex flex-col items-center text-center h-full"
+                <div className="relative p-8 flex flex-col items-center text-center h-full card-hover-glow overflow-hidden shimmer-on-hover cursor-pointer"
                   style={{ background: "#ffffff", borderRadius: "1.25rem", border: "1px solid #e2eaf5" }}>
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-5"
-                    style={{ background: "rgba(37,99,235,0.07)" }}>
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-5 transition-transform duration-300 hover:scale-110"
+                    style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.07), rgba(37,99,235,0.12))" }}>
                     <span className="material-symbols-outlined" style={{ color: "#2563eb", fontSize: "1.6rem" }}>{pillar.icon}</span>
                   </div>
                   <h3 className="font-display font-bold text-lg mb-3" style={{ color: "#0f172a" }}>{pillar.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "#64748b" }}>{pillar.body}</p>
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 opacity-0 hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(90deg, transparent, #2563eb, transparent)" }} />
                 </div>
               </ScrollReveal>
             ))}
@@ -290,7 +293,7 @@ export default function MissionPage() {
                   Whether you want to learn for your family or join us as an educator, the horizon is wide open.
                 </p>
                 <Link href="/get-started"
-                  className="inline-block font-bold text-lg px-10 py-4 rounded-full hover:opacity-90 transition-opacity"
+                  className="relative inline-block font-bold text-lg px-10 py-4 rounded-full hover:scale-105 transition-all overflow-hidden shimmer-on-hover pulse-glow"
                   style={{ background: "linear-gradient(135deg, #2563eb, #3b82f6)", color: "#ffffff", boxShadow: "0 8px 32px rgba(37,99,235,0.4)" }}>
                   Apply to Join Our Network
                 </Link>

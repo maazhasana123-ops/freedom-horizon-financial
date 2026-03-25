@@ -173,9 +173,11 @@ export default function SystemPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {features.map((feature, i) => (
               <ScrollReveal key={i} delay={i * 0.07}>
-                <div className="p-8 h-full"
+                <div className="relative p-8 h-full card-hover-glow-dark overflow-hidden cursor-pointer"
                   style={{ background: "rgba(255,255,255,0.05)", borderRadius: "1.25rem", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-5"
+                  <div className="absolute top-0 right-0 w-24 h-24 rounded-full opacity-10 pointer-events-none"
+                    style={{ background: "radial-gradient(circle, #60a5fa 0%, transparent 70%)", transform: "translate(40%, -40%)" }} />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-5 transition-transform duration-300 hover:scale-110"
                     style={{ background: "rgba(96,165,250,0.12)" }}>
                     <span className="material-symbols-outlined" style={{ color: "#60a5fa" }}>{feature.icon}</span>
                   </div>
@@ -249,7 +251,7 @@ export default function SystemPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {dimensions.map((dim, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="p-8 h-full"
+                <div className="relative p-8 h-full card-hover-glow overflow-hidden shimmer-on-hover cursor-pointer"
                   style={{
                     background: "#f8faff", borderRadius: "1.25rem", border: "1px solid #e2eaf5",
                     borderTop: `4px solid rgba(37,99,235,${0.4 + i * 0.15})`,
@@ -310,14 +312,18 @@ export default function SystemPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {threeWays.map((way, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="p-10 transition-all duration-300"
+                <div className="relative p-10 overflow-hidden transition-all duration-300 card-hover-glow"
                   style={{
                     background: way.highlight ? "linear-gradient(160deg, #0a1628, #0f2d5c)" : "#ffffff",
                     borderRadius: "1.25rem",
-                    border: way.highlight ? "none" : "1px solid #e2eaf5",
+                    border: way.highlight ? "1px solid rgba(255,255,255,0.08)" : "1px solid #e2eaf5",
                     boxShadow: way.highlight ? "0 24px 48px rgba(10,22,40,0.3)" : "0 2px 8px rgba(20,29,33,0.05)",
                     transform: way.highlight ? "scale(1.04)" : "scale(1)",
                   }}>
+                  {way.highlight && (
+                    <div className="absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none opacity-20"
+                      style={{ background: "radial-gradient(circle, rgba(37,99,235,0.6) 0%, transparent 70%)", transform: "translate(30%, -30%)" }} />
+                  )}
                   {way.badge && (
                     <div className="inline-block text-xs font-bold uppercase py-1 px-3 rounded-full mb-4"
                       style={{ background: "rgba(37,99,235,0.2)", color: "#93c5fd" }}>
@@ -329,7 +335,7 @@ export default function SystemPage() {
                   </h3>
                   <p className="mb-8" style={{ color: way.highlight ? "rgba(255,255,255,0.6)" : "#64748b" }}>{way.body}</p>
                   <Link href="/get-started"
-                    className="block w-full py-4 rounded-full font-bold transition-all hover:opacity-90"
+                    className="relative block w-full py-4 rounded-full font-bold transition-all hover:scale-105 hover:opacity-90 overflow-hidden shimmer-on-hover"
                     style={way.highlight
                       ? { background: "linear-gradient(135deg, #2563eb, #3b82f6)", color: "#ffffff", boxShadow: "0 8px 24px rgba(37,99,235,0.4)" }
                       : { background: "#f1f5f9", color: "#2563eb" }}>
@@ -360,13 +366,13 @@ export default function SystemPage() {
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link href="/get-started"
-                    className="inline-block font-bold text-lg px-10 py-4 rounded-full hover:opacity-90 transition-opacity"
+                    className="relative inline-block font-bold text-lg px-10 py-4 rounded-full hover:scale-105 transition-all overflow-hidden shimmer-on-hover pulse-glow"
                     style={{ background: "linear-gradient(135deg, #2563eb, #3b82f6)", color: "#ffffff", boxShadow: "0 8px 32px rgba(37,99,235,0.4)" }}>
                     Start Your Journey
                   </Link>
                   <Link href="/videos"
-                    className="inline-block font-bold text-lg px-10 py-4 rounded-full transition-colors"
-                    style={{ background: "rgba(255,255,255,0.08)", color: "#ffffff", border: "1px solid rgba(255,255,255,0.18)" }}>
+                    className="inline-block font-bold text-lg px-10 py-4 rounded-full transition-all hover:bg-white/15 hover:scale-105"
+                    style={{ background: "rgba(255,255,255,0.08)", color: "#ffffff", border: "1px solid rgba(255,255,255,0.18)", backdropFilter: "blur(8px)" }}>
                     Watch Our Story
                   </Link>
                 </div>

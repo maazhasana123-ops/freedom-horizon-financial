@@ -83,7 +83,7 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-8 h-8 border border-white/15 flex items-center justify-center text-white/40 hover:border-fhf-sky hover:text-fhf-sky transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fhf-sky"
+                  className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/40 hover:border-fhf-sky hover:text-fhf-sky hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fhf-sky"
                 >
                   <Icon className="w-3.5 h-3.5" />
                 </a>
@@ -128,7 +128,8 @@ export function Footer() {
             <div className="mt-8">
               <Link
                 href="/get-started"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-fhf-blue text-white text-sm font-semibold font-body hover:bg-fhf-sky transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fhf-sky focus-visible:ring-offset-2 focus-visible:ring-offset-fhf-navy"
+                className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-semibold font-body hover:opacity-90 hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fhf-sky focus-visible:ring-offset-2 focus-visible:ring-offset-fhf-navy overflow-hidden shimmer-on-hover"
+                style={{ background: "linear-gradient(135deg, #2e6db4, #004ac6)" }}
               >
                 Get Started
                 <span className="text-[10px] opacity-60">→</span>

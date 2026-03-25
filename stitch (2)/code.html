@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#b5d0fd",
+                        "on-background": "#141d21",
+                        "on-error": "#ffffff",
+                        "background": "#f4faff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-high": "#e0e9ef",
+                        "secondary": "#455f87",
+                        "on-secondary-container": "#3e5980",
+                        "primary": "#004ac6",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-surface": "#293236",
+                        "on-secondary-fixed-variant": "#2d486d",
+                        "on-surface-variant": "#434655",
+                        "surface": "#f4faff",
+                        "primary-container": "#2563eb",
+                        "tertiary": "#784b00",
+                        "surface-container-highest": "#dbe4ea",
+                        "outline": "#737686",
+                        "on-primary-fixed": "#00174b",
+                        "surface-bright": "#f4faff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-surface": "#141d21",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#ffeedd",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#eeefff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d2dbe1",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#e9f2f8",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface-tint": "#0053db",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-fixed-dim": "#adc8f5",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#dbe4ea",
+                        "tertiary-container": "#996100",
+                        "on-secondary-fixed": "#001c3b",
+                        "surface-container": "#e6eff5",
+                        "secondary-fixed": "#d5e3ff",
+                        "tertiary-fixed": "#ffddb8",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-low": "#ecf5fb"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%);
+        }
+        .horizon-gradient {
+            background: linear-gradient(to bottom, #1e40af 0%, #3b82f6 60%, #f59e0b 100%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background: rgba(244, 250, 255, 0.1);
+        }
+        .selection\:bg-secondary-container ::selection {
+            background-color: #b5d0fd;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md">
+<div class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-extrabold tracking-tighter text-white drop-shadow-sm font-headline">
+                Freedom Horizon Financial
+            </div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-blue-400 font-extrabold border-b-2 border-blue-400 font-label text-sm tracking-tight transition-all duration-300" href="#">Mission</a>
+<a class="text-white/90 hover:text-white transition-colors font-label text-sm tracking-tight hover:opacity-80" href="#">System</a>
+<a class="text-white/90 hover:text-white transition-colors font-label text-sm tracking-tight hover:opacity-80" href="#">Videos</a>
+<a class="text-white/90 hover:text-white transition-colors font-label text-sm tracking-tight hover:opacity-80" href="#">Contact</a>
+<a class="text-white/90 hover:text-white transition-colors font-label text-sm tracking-tight hover:opacity-80" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-white/90 font-bold text-sm hover:opacity-80 transition-all scale-95 active:scale-90">Login</button>
+<button class="bg-primary-container text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-none hover:shadow-xl hover:shadow-blue-500/10 transition-all scale-95 active:scale-90">
+                    Get Started
+                </button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden horizon-gradient">
+<!-- Background Elements -->
+<div class="absolute inset-0 z-0">
+<img alt="Financial Freedom" class="w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="silhouetted group of diverse people standing on a ridge looking towards a vibrant sunrise over a misty valley landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu2jSoPliYbXsLgq3YInl2mw1hgSM9a0iQf5YdV9uVNQaZzHyjRclQ1-d7k68xuFgH_7U7TLR8TVTB7yrvipgceyIUBIAx8t6gykeYih0Ekp1ofZd7GyordAMw7h2F0-IEfG1IkK6YRYbnG7jUTiO_sJqtG0y7Yw7LHEW1u-ztCMSuMJlLg6l3JiIncUuBdksWjrkdyjhx7Uj7A2aZsM3WnWWEJSMQMZ5cfo7jMWh9brE6ssyTPOeZkjQW-GBOvmFzH0EJXZ07apk"/>
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-surface to-transparent"></div>
+</div>
+<!-- Sun Ray Effect -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] pointer-events-none opacity-20">
+<div class="w-full h-full bg-[radial-gradient(circle,_rgba(255,221,184,0.4)_0%,_rgba(0,0,0,0)_70%)]"></div>
+</div>
+<div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white font-headline tracking-tighter leading-[0.9] drop-shadow-lg mb-8">
+                    Your Financial <br/>Freedom Starts <br/>at the <span class="text-tertiary-fixed">Horizon</span>
+</h1>
+<p class="text-lg md:text-2xl text-blue-50 font-medium max-w-2xl mx-auto mb-12 leading-relaxed opacity-90">
+                    We believe everyone deserves to understand how money works. Freedom Horizon Financial is on a mission to educate, empower, and help families build lasting wealth.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<button class="w-full sm:w-auto px-10 py-5 rounded-full bg-white text-primary font-bold text-lg shadow-2xl hover:bg-blue-50 transition-all scale-95 active:scale-90">
+                        Discover Our Mission
+                    </button>
+<button class="w-full sm:w-auto px-10 py-5 rounded-full border-2 border-white/40 text-white font-bold text-lg backdrop-blur-sm hover:bg-white/10 transition-all scale-95 active:scale-90 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                        Watch System Overview
+                    </button>
+</div>
+</div>
+<!-- Horizon Line Motif -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-tertiary-fixed to-transparent opacity-50 blur-sm"></div>
+</section>
+<!-- Stats Section -->
+<section class="py-24 bg-surface-container-lowest relative z-20">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Stat 1 -->
+<div class="group p-10 rounded-lg bg-surface-container-low transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 flex flex-col items-center text-center">
+<span class="text-primary font-headline text-5xl font-black mb-4 tracking-tighter">
+                            23 <span class="text-tertiary font-medium">out of</span> 50
+                        </span>
+<div class="w-12 h-1 bg-tertiary mb-6 rounded-full opacity-30 group-hover:w-24 transition-all"></div>
+<p class="text-on-surface-variant font-medium text-lg leading-snug">
+                            States reached across the nation with our localized financial courses for high schoolers.
+                        </p>
+</div>
+<!-- Stat 2 -->
+<div class="group p-10 rounded-lg bg-surface-container-low transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 flex flex-col items-center text-center">
+<span class="text-primary font-headline text-5xl font-black mb-4 tracking-tighter">
+                            4.5 <span class="text-tertiary font-medium">Billion</span>
+</span>
+<div class="w-12 h-1 bg-tertiary mb-6 rounded-full opacity-30 group-hover:w-24 transition-all"></div>
+<p class="text-on-surface-variant font-medium text-lg leading-snug">
+                            People globally who lack basic financial literacy resources according to latest reports.
+                        </p>
+</div>
+<!-- Stat 3 -->
+<div class="group p-10 rounded-lg bg-surface-container-low transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 flex flex-col items-center text-center">
+<span class="text-primary font-headline text-5xl font-black mb-4 tracking-tighter">
+                            37<span class="text-tertiary">%</span>
+</span>
+<div class="w-12 h-1 bg-tertiary mb-6 rounded-full opacity-30 group-hover:w-24 transition-all"></div>
+<p class="text-on-surface-variant font-medium text-lg leading-snug">
+                            Of Americans who can't cover a $400 emergency expense without confidence.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Numbers -->
+<section class="py-16 bg-primary text-white overflow-hidden relative">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="flex-1">
+<h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mb-4 leading-none">
+                        100,000+ Families <br/>Educated Worldwide
+                    </h2>
+<p class="text-blue-100 text-xl font-medium max-w-lg opacity-80">
+                        Join a global movement dedicated to breaking the cycle of financial uncertainty across North America.
+                    </p>
+</div>
+<div class="flex gap-4">
+<img alt="" class="w-20 h-20 rounded-full border-4 border-white/20 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuem616AvfTWilTuL_QE9nVg_1YKAgJZ5r6PrF4Jm4zhdPe4IeF2r0YaisIM83eq5-0q5HHzCLXPYXGCCs6Btd8AFgsZrSYefvTXAPOk71NJQLkPzFxhLdoNmV--_9XE9lZ5mmSWZ4bTt0Ao6qCSL4J93cdcnhvBQTWrFJ58cTcLMVNYghv4lj-apsONcl_hCPd0k_e5atvfGacu-4y8QsHxAg6HX_VaA1T4c5MMro4FqIYrKNwQMI0BW1atkWxl_rstWt5KRSKWw"/>
+<img alt="" class="w-20 h-20 rounded-full border-4 border-white/20 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5J6zPMtami2j_UIAzMqN_PN5156aZazCqB-08tHpCWzXm5wL-rUiMaDZN4uVnRwezoykQG6YuUMEzT9-_DmmVK2AYuj8TXwv4iUGWRWJOl4vdouL5-vDoXgWZf0kRhXSh97QZIe3iysHS2eEBZ_ZQ_o61XpjN8Y-ykH_vlsyjbwICX3UKgKaFVXSXI4eOlGSX6pbkv_T-B9cZx90jpmrXrOecnglsrtwKCk_uGw4DLLhFEabq2KTk2f3zM2IviGOO01OiNQS-Tio"/>
+<img alt="" class="w-20 h-20 rounded-full border-4 border-white/20 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBadDqSjHDYR2VWNRxCJDk6n_YGKtK6rgbPXqnf9qDHYhAFu_rF4W7MhnKeK-LwIqrvxsiIfb9TrGFqHrOyPKPhQ63hXslksQWdCzYjz21rdZU8o99wzMev-1oyigtYFVbhEbRA5d2hk4lKm7YogFeEaZjbmXkuub3svrhSBhfOxcWsLYXf0O4b6AYONtLva5Gvkcdba4zFA_g-2ef0rGix533596gc7IoHTt8oI0MXTl3zgmNfiev31YOZpj7RnQ-uaud--gAPhqk"/>
+</div>
+</div>
+</section>
+<!-- Features Section (Bento Inspired Grid) -->
+<section class="py-32 bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-bold text-xs uppercase tracking-widest mb-6">Our Ecosystem</span>
+<h2 class="text-5xl md:text-6xl font-black font-headline tracking-tighter text-on-surface leading-tight">
+                            The Freedom Horizon <br/>Success System
+                        </h2>
+</div>
+<p class="text-on-surface-variant text-xl max-w-sm font-medium leading-relaxed pb-2">
+                        Our comprehensive approach combines modern tools with timeless principles to build your financial foundation.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 grid-rows-2 gap-6 min-h-[700px]">
+<!-- Card 1 -->
+<div class="md:col-span-4 bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group transition-all hover:bg-primary hover:text-white">
+<div>
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-white/20">
+<span class="material-symbols-outlined text-primary group-hover:text-white">school</span>
+</div>
+<h3 class="text-2xl font-bold mb-4 font-headline">Professional Development</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 line-clamp-2">Continuous training and certification programs for our field leaders and educators.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="md:col-span-8 bg-surface-container-lowest p-8 rounded-lg flex flex-col md:flex-row gap-8 items-center group transition-all hover:bg-primary-container hover:text-white">
+<div class="flex-1">
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-white/20">
+<span class="material-symbols-outlined text-primary group-hover:text-white">devices</span>
+</div>
+<h3 class="text-2xl font-bold mb-4 font-headline">Technology &amp; Marketing</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 line-clamp-2">Proprietary digital platforms and marketing engines designed to simplify complex financial concepts for every family.</p>
+</div>
+<div class="flex-1 w-full h-48 rounded-lg bg-surface-container-low overflow-hidden group-hover:bg-white/10">
+<img alt="" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD__s66yc2ltBPvQYKiwOcSaTBrGfh27i8SaRjGmoZQsFisD9Z0k6H78K0B1LptHXjbUSrui7mjFcgcRLw07p6M0SeyriElNZ1G0OqwQ3KyrVb_SCkPL6YgjeSMxW8SaW8IkK2eQjk8tdmVpIS2qKqzu6GnGq-IFi4jewrkTDnpBx3HfJCIPr1fAb-sn3hHBCWta8ebB8qXO-RrJCxpQPLCSx2l571cTK1ydWRAUdTmz3-YnnAL__DuoU7eLH4zROfpZN5pGSmjAKE"/>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="md:col-span-5 bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group transition-all hover:bg-tertiary-container hover:text-white">
+<div>
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-white/20">
+<span class="material-symbols-outlined text-primary group-hover:text-white">history_edu</span>
+</div>
+<h3 class="text-2xl font-bold mb-4 font-headline">Decades of Experience</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 line-clamp-2">Backed by a leadership team with over 40 years of collective wisdom in the financial services industry.</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="md:col-span-4 bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group transition-all hover:bg-secondary hover:text-white">
+<div>
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-white/20">
+<span class="material-symbols-outlined text-primary group-hover:text-white">psychology</span>
+</div>
+<h3 class="text-2xl font-bold mb-4 font-headline">Mindset Training</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 line-clamp-2">Focusing on the psychological foundation required for long-term wealth building.</p>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="md:col-span-3 bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group transition-all hover:bg-tertiary hover:text-white">
+<div>
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-white/20">
+<span class="material-symbols-outlined text-primary group-hover:text-white">settings_input_component</span>
+</div>
+<h3 class="text-2xl font-bold mb-4 font-headline">System Powered</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 line-clamp-2">A repeatable, scalable system that removes guesswork from financial success.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Component: Horizon Progress Bar -->
+<section class="bg-surface py-20">
+<div class="max-w-4xl mx-auto px-8 text-center">
+<h4 class="text-primary font-bold tracking-widest uppercase text-xs mb-8">Current Global Mission Progress</h4>
+<div class="relative w-full h-8 bg-surface-container-high rounded-full overflow-hidden mb-6">
+<div class="absolute top-0 left-0 h-full w-[72%] rounded-full transition-all duration-1000" style="background: linear-gradient(90deg, #ffddb8 0%, #784b00 100%);">
+<div class="absolute inset-0 bg-white/10 flex items-center justify-end px-4">
+<span class="text-white font-bold text-sm">72%</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic font-medium">Over 360,000 lives impacted through our primary 2024 initiative.</p>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-24 relative">
+<div class="max-w-5xl mx-auto px-8">
+<div class="bg-surface-container-low rounded-lg p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoT_AqfPqPy6P31OaoOwnmyFMyn5hAOeOzR9V04o449poI5Ofop3KK2VGv99pBjIy4DijjxPxUCiK1KYxAFaNBEoZUvqNNJhIdvq961yvwIl1CY11SgN-Qi6QCmsMfd58WTNSB280RzX4CUlTHT_gctKPlVrexMRME2P-DnvRbZAzcEoMOdXb5HvRt_gnpqqiz-IAOVzRRLbpXmLzZX75Xx2HQvKXLa6qakXdosMdcsuv8vBIS3-RC6-ikX4VwrQDJfo2csi-B1tM"/>
+</div>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold text-on-surface mb-8 relative z-10">Ready to change your financial trajectory?</h2>
+<p class="text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto relative z-10">Join thousands of families who have found clarity and confidence through the Freedom Horizon mission.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="signature-gradient text-white px-12 py-5 rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-all">Start Your Journey</button>
+<button class="bg-surface-container-lowest text-on-surface px-12 py-5 rounded-full font-bold text-lg hover:bg-white transition-all shadow-sm">Talk to an Educator</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-20 pb-10 bg-blue-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-black text-amber-400 uppercase tracking-widest mb-6 font-headline">
+                    Freedom Horizon Financial
+                </div>
+<p class="text-blue-100/70 text-sm leading-relaxed mb-8">
+                    Defining the next era of financial literacy and freedom through education, technology, and community.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-amber-400 cursor-pointer hover:scale-110 transition-transform">public</span>
+<span class="material-symbols-outlined text-amber-400 cursor-pointer hover:scale-110 transition-transform">groups</span>
+<span class="material-symbols-outlined text-amber-400 cursor-pointer hover:scale-110 transition-transform">podcasts</span>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 font-headline">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="text-blue-100/70 hover:text-amber-400 transition-colors text-sm font-label" href="#">Mission</a></li>
+<li><a class="text-blue-100/70 hover:text-amber-400 transition-colors text-sm font-label" href="#">System</a></li>
+<li><a class="text-blue-100/70 hover:text-amber-400 transition-colors text-sm font-label" href="#">Videos</a></li>
+<li><a class="text-blue-100/70 hover:text-amber-400 transition-colors text-sm font-label" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 font-headline">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-blue-100/70 hover:text-amber-400 transition-colors text-sm font-label" href="#">Privacy Policy</a></li>
+<li><a class="text-blue-100/70 hover:text-amber-400 transition-colors text-sm font-label" href="#">Terms of Service</a></li>
+<li><a class="text-blue-100/70 hover:text-amber-400 transition-colors text-sm font-label" href="#">Disclosures</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 font-headline">Newsletter</h5>
+<p class="text-blue-100/70 text-sm mb-6">Stay informed about upcoming sessions and workshops.</p>
+<div class="flex">
+<input class="bg-blue-900/40 border-none rounded-l-full px-6 py-3 text-white text-sm focus:ring-1 focus:ring-amber-400 w-full placeholder:text-blue-300/50" placeholder="Email address" type="email"/>
+<button class="bg-amber-400 text-blue-950 rounded-r-full px-6 py-3 font-bold text-sm hover:bg-amber-300 transition-colors">
+                        Join
+                    </button>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-white/10 text-center">
+<p class="text-blue-100/40 text-xs font-label">
+                © 2024 Freedom Horizon Financial. All rights reserved.
+            </p>
+</div>
+</footer>
+</body></html>

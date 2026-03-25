@@ -8,7 +8,7 @@ interface ScrollRevealProps {
   children: React.ReactNode;
   delay?: number;
   className?: string;
-  direction?: "up" | "left" | "right" | "none";
+  direction?: "up" | "left" | "right" | "none" | "scale";
 }
 
 export function ScrollReveal({
@@ -21,10 +21,11 @@ export function ScrollReveal({
   const isInView = useInView(ref, { once: true, margin: "0px 0px -40px 0px" });
 
   const variants = {
-    up:    { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } },
-    left:  { hidden: { opacity: 0, x: -24 }, visible: { opacity: 1, x: 0 } },
-    right: { hidden: { opacity: 0, x: 24 },  visible: { opacity: 1, x: 0 } },
-    none:  { hidden: { opacity: 0 },          visible: { opacity: 1 } },
+    up:    { hidden: { opacity: 0, y: 28 },         visible: { opacity: 1, y: 0 } },
+    left:  { hidden: { opacity: 0, x: -28 },        visible: { opacity: 1, x: 0 } },
+    right: { hidden: { opacity: 0, x: 28 },         visible: { opacity: 1, x: 0 } },
+    none:  { hidden: { opacity: 0 },                visible: { opacity: 1 } },
+    scale: { hidden: { opacity: 0, scale: 0.95 },   visible: { opacity: 1, scale: 1 } },
   };
 
   return (
@@ -33,7 +34,7 @@ export function ScrollReveal({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={variants[direction]}
-      transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={cn(className)}
     >
       {children}
