@@ -28,22 +28,25 @@ function FadeIn({
 
 const stats = [
   {
+    prefix: "Only",
     num: "23",
-    mid: "out of",
-    end: "50",
-    desc: "States reached across the nation with our localized financial courses for high schoolers.",
+    suffix: "out of 50 states",
+    desc: "require high school students to take a personal finance course to graduate",
+    source: "Council For Economic Education, 2022",
   },
   {
-    num: "4.5",
-    mid: "",
-    end: "Billion",
-    desc: "People globally who lack basic financial literacy resources according to latest reports.",
+    prefix: "Over",
+    num: "4.5B",
+    suffix: "people worldwide",
+    desc: "throughout the world today are financially illiterate",
+    source: "Gitnux Financial Literacy Report, 2023",
   },
   {
-    num: "37",
-    mid: "",
-    end: "%",
-    desc: "Of Americans who can't cover a $400 emergency expense without confidence.",
+    prefix: "Studies Reveal",
+    num: "37%",
+    suffix: "of Americans",
+    desc: "can't cover a $400 emergency expense",
+    source: "Federal Reserve Economic Report, 2023",
   },
 ];
 
@@ -169,27 +172,24 @@ export default function HomePage() {
                   className="group p-10 flex flex-col items-center text-center transition-all duration-500 hover:shadow-xl"
                   style={{ background: "#ecf5fb", borderRadius: "1rem" }}
                 >
-                  <div className="font-display font-black text-5xl mb-4 tracking-tighter">
-                    <span style={{ color: "#004ac6" }}>{s.num}</span>
-                    {s.mid && (
-                      <span className="text-3xl font-medium mx-2" style={{ color: "#784b00" }}>
-                        {s.mid}
-                      </span>
-                    )}
-                    <span style={{ color: "#004ac6" }}> {s.end.startsWith("%") ? "" : " "}</span>
-                    <span
-                      className={s.end.length <= 2 ? "text-5xl" : "text-3xl font-medium"}
-                      style={{ color: "#784b00" }}
-                    >
-                      {s.end}
-                    </span>
+                  <p className="font-body text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#784b00" }}>
+                    {s.prefix}
+                  </p>
+                  <div className="font-display font-black mb-1 tracking-tighter leading-none" style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)", color: "#004ac6" }}>
+                    {s.num}
                   </div>
+                  <p className="font-display font-bold text-lg mb-3" style={{ color: "#1a2d5a" }}>
+                    {s.suffix}
+                  </p>
                   <div
-                    className="w-12 h-1 mb-6 rounded-full transition-all duration-500 group-hover:w-24"
+                    className="w-12 h-1 mb-4 rounded-full transition-all duration-500 group-hover:w-24"
                     style={{ background: "#784b00", opacity: 0.3 }}
                   />
-                  <p className="font-medium text-lg leading-snug" style={{ color: "#434655" }}>
+                  <p className="font-medium leading-snug mb-3" style={{ color: "#434655" }}>
                     {s.desc}
+                  </p>
+                  <p className="text-xs font-medium" style={{ color: "#737686" }}>
+                    {s.source}
                   </p>
                 </div>
               </FadeIn>
@@ -202,16 +202,26 @@ export default function HomePage() {
       <section className="py-16 overflow-hidden" style={{ background: "#004ac6" }}>
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-12">
           <FadeIn className="flex-1">
-            <h2
-              className="font-display font-black tracking-tighter leading-none mb-4 text-white"
-              style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
-            >
-              100,000+ Families <br />Educated Worldwide
-            </h2>
-            <p className="text-xl font-medium max-w-lg" style={{ color: "rgba(219,234,254,0.8)" }}>
-              Join a global movement dedicated to breaking the cycle of financial
-              uncertainty across North America.
-            </p>
+            <div className="flex flex-col sm:flex-row gap-12">
+              <div>
+                <div className="font-display font-black tracking-tighter leading-none text-white" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>
+                  100,000+
+                </div>
+                <p className="font-bold text-lg mt-1" style={{ color: "rgba(219,234,254,0.9)" }}>Individuals &amp; Families</p>
+                <p className="font-medium mt-2 max-w-xs" style={{ color: "rgba(219,234,254,0.7)", fontSize: "0.95rem" }}>
+                  received financial literacy education through our growing network
+                </p>
+              </div>
+              <div>
+                <div className="font-display font-black tracking-tighter leading-none text-white" style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>
+                  1,000+
+                </div>
+                <p className="font-bold text-lg mt-1" style={{ color: "rgba(219,234,254,0.9)" }}>Freedom Horizon Educators</p>
+                <p className="font-medium mt-2 max-w-xs" style={{ color: "rgba(219,234,254,0.7)", fontSize: "0.95rem" }}>
+                  across North America sharing financial knowledge in their communities
+                </p>
+              </div>
+            </div>
           </FadeIn>
           <FadeIn delay={0.1} className="flex gap-4 flex-shrink-0">
             {avatars.map((src, i) => (
@@ -288,7 +298,7 @@ export default function HomePage() {
                   Professional Development
                 </h3>
                 <p style={{ color: "#434655" }}>
-                  Continuous training and certification programs for our field leaders and educators.
+                  Monthly events, weekly webinars, ongoing training, and mentorship to keep you growing and on track.
                 </p>
               </div>
             </FadeIn>
@@ -312,8 +322,7 @@ export default function HomePage() {
                     Technology &amp; Marketing
                   </h3>
                   <p style={{ color: "#434655" }}>
-                    Proprietary digital platforms and marketing engines designed to simplify complex
-                    financial concepts for every family.
+                    Build your brand with world-class digital tools, marketing systems, and lead generation support from day one.
                   </p>
                 </div>
                 <div
@@ -352,8 +361,7 @@ export default function HomePage() {
                   Decades of Experience
                 </h3>
                 <p style={{ color: "#434655" }}>
-                  Backed by a leadership team with over 40 years of collective wisdom in the
-                  financial services industry.
+                  Our leadership team has decades of combined experience, guiding you with confidence and proven strategies.
                 </p>
               </div>
             </FadeIn>
@@ -369,14 +377,14 @@ export default function HomePage() {
                   style={{ background: "#e0e9ef" }}
                 >
                   <span className="material-symbols-outlined" style={{ color: "#004ac6" }}>
-                    psychology
+                    self_improvement
                   </span>
                 </div>
                 <h3 className="font-display font-bold text-2xl mb-4" style={{ color: "#141d21" }}>
-                  Mindset Training
+                  Personal Development
                 </h3>
                 <p style={{ color: "#434655" }}>
-                  Focusing on the psychological foundation required for long-term wealth building.
+                  Our leadership program elevates you to be your personal best in every area of business and life.
                 </p>
               </div>
             </FadeIn>
@@ -399,7 +407,7 @@ export default function HomePage() {
                   System Powered
                 </h3>
                 <p style={{ color: "#434655" }}>
-                  A repeatable, scalable system that removes guesswork from financial success.
+                  Every area of our business has an easy-to-learn, step-by-step process so you can focus on growth—not trial and error.
                 </p>
               </div>
             </FadeIn>
