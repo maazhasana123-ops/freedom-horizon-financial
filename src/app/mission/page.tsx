@@ -174,47 +174,43 @@ export default function MissionPage() {
       </section>
 
       {/* CRITICAL MASS — darkest */}
-      <section className="py-28 px-4 sm:px-8 relative overflow-hidden" style={{ background: "#060d1a" }}>
+      <section className="py-28 px-4 sm:px-8 relative overflow-hidden" style={{ background: "#0f1923" }}>
         <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "rgba(37,99,235,0.12)", filter: "blur(80px)" }} />
+          style={{ background: "rgba(37,99,235,0.1)", filter: "blur(80px)" }} />
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
-            <span className="inline-block px-3 py-1 text-xs font-bold tracking-widest uppercase rounded-full mb-6"
-              style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }}>
-              The Objective
-            </span>
-            <h2 className="font-display font-extrabold mb-6 text-white"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", letterSpacing: "-0.02em" }}>
-              Building Critical Mass
+            <h2 className="font-display font-black mb-8 text-white"
+              style={{ fontSize: "clamp(2.75rem, 5vw, 4.5rem)", letterSpacing: "-0.03em", lineHeight: 1 }}>
+              Building<br />Critical Mass
             </h2>
-            <p className="text-lg mb-10 leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-              To win this war on illiteracy, we need an army of educators. We are rapidly expanding our network of licensed agents committed to the mission.
+            <p className="text-lg mb-12 leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
+              To win this war on illiteracy, we need an army of educators. We are rapidly expanding our network of licensed agents who are committed to the mission.
             </p>
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div>
-                <div className="flex justify-between items-end mb-3">
-                  <span className="font-bold text-sm tracking-widest uppercase text-white">Current Agents</span>
-                  <span className="text-2xl font-bold" style={{ color: "#3b82f6" }}>500+</span>
+                <div className="flex justify-between items-baseline mb-3">
+                  <span className="font-body font-bold text-xs tracking-[0.18em] uppercase" style={{ color: "rgba(255,255,255,0.45)" }}>Current Licensed Agents</span>
+                  <span className="font-display font-black text-3xl" style={{ color: "#ffddb8" }}>500+</span>
                 </div>
-                <div className="h-3 w-full rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
-                  <div className="h-full rounded-full w-[10%]" style={{ background: "linear-gradient(to right, #3b82f6, #2563eb)" }} />
+                <div className="h-3 w-full rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.07)" }}>
+                  <div className="h-full rounded-full w-[10%]" style={{ background: "linear-gradient(to right, #60a5fa, #3b82f6)" }} />
                 </div>
               </div>
               <div>
-                <div className="flex justify-between items-end mb-3">
-                  <span className="font-bold text-sm tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.3)" }}>Target</span>
-                  <span className="text-2xl font-bold" style={{ color: "rgba(255,255,255,0.3)" }}>5,000+</span>
+                <div className="flex justify-between items-baseline mb-3">
+                  <span className="font-body font-bold text-xs tracking-[0.18em] uppercase" style={{ color: "rgba(255,255,255,0.35)" }}>Target Objective</span>
+                  <span className="font-display font-black text-3xl" style={{ color: "rgba(255,255,255,0.35)" }}>5,000+</span>
                 </div>
-                <div className="h-3 w-full rounded-full" style={{ background: "rgba(255,255,255,0.04)" }} />
+                <div className="h-3 w-full rounded-full" style={{ background: "rgba(255,255,255,0.06)" }} />
               </div>
             </div>
           </ScrollReveal>
-          <ScrollReveal delay={0.15} direction="right">
-            <div className="p-12 text-center"
-              style={{ background: "rgba(255,255,255,0.03)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", borderRadius: "1.25rem", border: "1px solid rgba(255,255,255,0.07)" }}>
-              <div className="font-display font-bold text-white mb-2" style={{ fontSize: "6rem", lineHeight: 1 }}>10X</div>
-              <div className="text-sm font-bold uppercase tracking-[0.2em] mb-6" style={{ color: "#3b82f6" }}>Expansion Goal</div>
-              <p className="italic text-lg" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <ScrollReveal delay={0.15}>
+            <div className="p-14 text-center"
+              style={{ background: "#1a2535", borderRadius: "1.5rem", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="font-display font-black mb-3" style={{ fontSize: "7rem", lineHeight: 1, color: "#ffddb8" }}>10X</div>
+              <div className="font-body font-bold text-xs uppercase tracking-[0.25em] mb-8" style={{ color: "#ffddb8" }}>Expansion Goal</div>
+              <p className="font-body italic text-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
                 &ldquo;When we reach critical mass, the ripple effect of financial literacy will be unstoppable.&rdquo;
               </p>
             </div>
