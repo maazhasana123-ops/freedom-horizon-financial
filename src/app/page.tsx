@@ -32,30 +32,26 @@ export default function HomePage() {
       {/* ════════════════════════════════════════
           HERO
       ════════════════════════════════════════ */}
-      <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: "100vh" }}>
-        {/* Horizon gradient */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{ background: "linear-gradient(to bottom, #1e3a8a 0%, #1d4ed8 45%, #f59e0b 85%, #d97706 100%)" }}
-        />
-        {/* Background image */}
-        <div className="absolute inset-0 z-[1]">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: "linear-gradient(to bottom, #1e40af 0%, #3b82f6 60%, #f59e0b 100%)" }}>
+        {/* Background image — silhouetted group at sunrise (matches reference design) */}
+        <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1515191107209-c28698631303?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
             alt=""
             fill
             className="object-cover"
-            style={{ opacity: 0.45, mixBlendMode: "multiply" }}
+            style={{ opacity: 0.45, mixBlendMode: "overlay" }}
             priority
           />
-          <div className="absolute bottom-0 left-0 w-full h-48" style={{ background: "linear-gradient(to top, #f4faff, transparent)" }} />
+          <div className="absolute bottom-0 left-0 w-full h-32" style={{ background: "linear-gradient(to top, #f4faff, transparent)" }} />
         </div>
-        {/* Sun glow */}
-        <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 65%, rgba(251,191,36,0.25) 0%, transparent 60%)" }} />
-        {/* Ambient mesh */}
-        <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse at 15% 40%, rgba(37,99,235,0.12) 0%, transparent 45%), radial-gradient(ellipse at 85% 30%, rgba(0,74,198,0.1) 0%, transparent 40%)" }} />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center" style={{ paddingTop: "9rem", paddingBottom: "8rem" }}>
+        {/* Sun ray radial glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] pointer-events-none z-[1]" style={{ opacity: 0.2 }}>
+          <div className="w-full h-full" style={{ background: "radial-gradient(circle, rgba(255,221,184,0.4) 0%, rgba(0,0,0,0) 70%)" }} />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,8 +66,8 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-black text-white drop-shadow-2xl mb-8 tracking-tighter leading-[0.9]"
-            style={{ fontSize: "clamp(3.25rem, 8vw, 6rem)" }}
+            className="font-display font-black text-white drop-shadow-lg mb-8 tracking-tighter leading-[0.9]"
+            style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
           >
             Your Financial <br />
             Freedom Starts <br />
@@ -82,8 +78,8 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="font-body text-lg md:text-xl font-medium max-w-2xl mx-auto mb-14 leading-relaxed"
-            style={{ color: "rgba(219,234,254,0.92)" }}
+            className="font-body text-lg md:text-2xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed"
+            style={{ color: "rgba(239,246,255,0.9)" }}
           >
             We believe everyone deserves to understand how money works. Freedom
             Horizon Financial is on a mission to educate, empower, and help
@@ -94,21 +90,21 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Link
               href="/mission"
-              className="relative w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg transition-all hover:scale-105 hover:shadow-2xl shadow-2xl overflow-hidden shimmer-on-hover"
+              className="relative w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg shadow-2xl hover:bg-blue-50 transition-all scale-95 hover:scale-100 overflow-hidden shimmer-on-hover"
               style={{ background: "#ffffff", color: "#004ac6" }}
             >
               Discover Our Mission
             </Link>
             <Link
               href="/system"
-              className="w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg transition-all hover:bg-white/15 flex items-center justify-center gap-2 text-white hover:scale-105"
-              style={{ border: "2px solid rgba(255,255,255,0.45)", backdropFilter: "blur(8px)" }}
+              className="w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg transition-all hover:bg-white/10 flex items-center justify-center gap-2 text-white scale-95 hover:scale-100"
+              style={{ border: "2px solid rgba(255,255,255,0.4)", backdropFilter: "blur(4px)" }}
             >
-              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1", fontSize: "1.25rem" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: "1.25rem" }}>
                 play_circle
               </span>
               Watch System Overview
@@ -116,7 +112,8 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-px blur-sm z-10" style={{ background: "linear-gradient(to right, transparent, rgba(255,221,184,0.6), transparent)" }} />
+        {/* Horizon line motif */}
+        <div className="absolute bottom-0 left-0 w-full h-px blur-sm z-10 opacity-50" style={{ background: "linear-gradient(to right, transparent, #ffddb8, transparent)" }} />
       </section>
 
       {/* ════════════════════════════════════════
