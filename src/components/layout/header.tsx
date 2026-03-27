@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
@@ -83,14 +82,11 @@ export function Header() {
               style={{ ["--tw-ring-color" as string]: "#004ac6" }}
               aria-label="Freedom Horizon Financial — Home"
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/images/logo.png"
                 alt="Freedom Horizon Financial"
-                width={400}
-                height={160}
                 style={{ height: "110px", width: "auto", display: "block" }}
-                className="object-contain"
-                priority
               />
             </Link>
 
