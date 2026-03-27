@@ -73,7 +73,7 @@ export function Header() {
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-24 lg:h-32">
+          <div className="flex items-center justify-between h-28 lg:h-36">
 
             {/* Logo */}
             <Link
@@ -85,9 +85,9 @@ export function Header() {
               <Image
                 src="/images/logo.png"
                 alt="Freedom Horizon Financial"
-                width={240}
-                height={96}
-                className="h-20 w-auto object-contain"
+                width={280}
+                height={112}
+                className="h-24 w-auto object-contain"
                 priority
               />
             </Link>
