@@ -30,7 +30,7 @@ function FadeIn({
 export default function HomePage() {
   return (
     <ScrollExpandMedia
-      mediaSrc="/images/hero.mp4"
+      mediaSrc="/images/hero-c.mp4"
       posterSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
       bgImageSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
       title="Freedom Horizon"
