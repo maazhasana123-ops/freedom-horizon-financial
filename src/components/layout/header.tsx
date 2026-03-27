@@ -2,48 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
 import { MobileNav } from "./mobile-nav";
 
 
-/* FHF Logo SVG — wave + sun mark */
-function FHFLogoMark({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 48 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      {/* Sun circle */}
-      <ellipse cx="24" cy="20" rx="7" ry="7" fill="#7ab8d9" />
-      {/* Sun rays */}
-      <line x1="24" y1="8"  x2="24" y2="4"  stroke="#2e6db4" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="32" y1="11" x2="34.5" y2="7.5" stroke="#2e6db4" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="36" y1="19" x2="40"   y2="19"   stroke="#2e6db4" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="16" y1="11" x2="13.5" y2="7.5"  stroke="#2e6db4" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="12" y1="19" x2="8"    y2="19"   stroke="#2e6db4" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Wave 1 — sky blue */}
-      <path
-        d="M2 24 Q10 19 18 23 Q26 27 34 22 Q42 17 46 21"
-        stroke="#7ab8d9" strokeWidth="2.2" fill="none" strokeLinecap="round"
-      />
-      {/* Wave 2 — mid blue */}
-      <path
-        d="M2 28 Q10 23 18 27 Q26 31 34 26 Q42 21 46 25"
-        stroke="#2e6db4" strokeWidth="2.5" fill="none" strokeLinecap="round"
-      />
-      {/* Wave 3 — navy */}
-      <path
-        d="M2 33 Q12 27 20 32 Q28 37 38 30 Q43 27 46 29"
-        stroke="#1a2d5a" strokeWidth="3" fill="none" strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -117,21 +82,14 @@ export function Header() {
               style={{ ["--tw-ring-color" as string]: "#004ac6" }}
               aria-label="Freedom Horizon Financial — Home"
             >
-              <FHFLogoMark className="w-16 h-[3.25rem] flex-shrink-0" />
-              <div className="leading-none">
-                <div
-                  className="font-display font-bold text-xl tracking-tight leading-none transition-colors duration-300"
-                  style={{ color: useLightNav ? "#ffffff" : "#1a2d5a" }}
-                >
-                  Freedom Horizon
-                </div>
-                <div
-                  className="text-eyebrow mt-1 transition-colors duration-300"
-                  style={{ color: useLightNav ? "rgba(181,208,253,0.85)" : "#2e6db4" }}
-                >
-                  Financial
-                </div>
-              </div>
+              <Image
+                src="/images/logo.png"
+                alt="Freedom Horizon Financial"
+                width={180}
+                height={72}
+                className="h-14 w-auto object-contain"
+                priority
+              />
             </Link>
 
             {/* Desktop Nav */}

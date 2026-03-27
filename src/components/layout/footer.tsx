@@ -1,22 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Share2, AtSign, Video, Globe } from "lucide-react";
 import { FOOTER_NAV, COMPANY_INFO } from "@/lib/constants";
-
-function FHFLogoMarkSmall() {
-  return (
-    <svg viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-9" aria-hidden="true">
-      <ellipse cx="20" cy="15" rx="5.5" ry="5.5" fill="#7ab8d9" opacity="0.9" />
-      <line x1="20" y1="6"  x2="20" y2="3"  stroke="#7ab8d9" strokeWidth="1.3" strokeLinecap="round" />
-      <line x1="26.5" y1="8.5" x2="28.5" y2="5.5" stroke="#7ab8d9" strokeWidth="1.3" strokeLinecap="round" />
-      <line x1="29" y1="15" x2="32" y2="15" stroke="#7ab8d9" strokeWidth="1.3" strokeLinecap="round" />
-      <line x1="13.5" y1="8.5" x2="11.5" y2="5.5" stroke="#7ab8d9" strokeWidth="1.3" strokeLinecap="round" />
-      <line x1="11" y1="15" x2="8"  y2="15" stroke="#7ab8d9" strokeWidth="1.3" strokeLinecap="round" />
-      <path d="M2 19 Q9 15 16 18 Q23 21 30 17 Q36 14 38 17" stroke="#7ab8d9" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.8" />
-      <path d="M2 23 Q9 19 16 22 Q23 25 30 21 Q36 18 38 21" stroke="#2e6db4" strokeWidth="2" fill="none" strokeLinecap="round" />
-      <path d="M2 27 Q10 22 17 26 Q24 30 32 24 Q36 22 38 24" stroke="white" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.7" />
-    </svg>
-  );
-}
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -34,14 +19,14 @@ export function Footer() {
           {/* Brand column */}
           <div className="md:col-span-5 lg:col-span-4">
             {/* Logo wordmark */}
-            <Link href="/" className="group inline-flex items-center gap-2.5 mb-6">
-              <FHFLogoMarkSmall />
-              <div>
-                <div className="font-display font-bold text-white text-lg tracking-tight leading-none">
-                  Freedom Horizon
-                </div>
-                <div className="text-eyebrow text-fhf-sky mt-0.5">Financial</div>
-              </div>
+            <Link href="/" className="group inline-flex mb-6">
+              <Image
+                src="/images/logo.png"
+                alt="Freedom Horizon Financial"
+                width={200}
+                height={80}
+                className="h-16 w-auto object-contain brightness-0 invert"
+              />
             </Link>
 
             {/* Tagline */}
