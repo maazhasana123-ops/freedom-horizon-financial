@@ -60,6 +60,7 @@ export function Header() {
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           boxShadow: isScrolled ? "0 1px 0 rgba(195, 198, 215, 0.35)" : "none",
+          minHeight: "100px",
         }}
       >
         {/* Bottom hairline — gradient tint, no solid border */}
@@ -73,7 +74,7 @@ export function Header() {
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-32 lg:h-44">
+          <div className="flex items-center justify-between" style={{ height: "100px" }}>
 
             {/* Logo */}
             <Link
@@ -87,7 +88,8 @@ export function Header() {
                 alt="Freedom Horizon Financial"
                 width={320}
                 height={128}
-                className="h-28 w-auto object-contain"
+                style={{ height: "72px", width: "auto" }}
+                className="object-contain"
                 priority
               />
             </Link>
