@@ -141,7 +141,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative px-4 py-2 text-sm font-bold font-display tracking-tight transition-colors duration-200",
+                    "relative px-5 py-2 text-base font-bold font-display tracking-tight transition-colors duration-200",
                     "focus-visible:outline-none focus-visible:ring-2",
                     "after:absolute after:bottom-0 after:left-4 after:right-4 after:h-0.5",
                     "after:scale-x-0 after:transition-transform after:duration-200 after:origin-left",
@@ -161,7 +161,7 @@ export function Header() {
               <Link
                 href="/contact"
                 className={cn(
-                  "text-sm font-medium font-body tracking-wide transition-colors duration-200",
+                  "text-base font-medium font-body tracking-wide transition-colors duration-200",
                   "focus-visible:outline-none focus-visible:ring-2",
                   useLightNav ? "text-white/70 hover:text-white" : "text-fhf-ink-light hover:text-fhf-navy"
                 )}
@@ -176,7 +176,7 @@ export function Header() {
 
               <Link
                 href="/get-started"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-bold font-body text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-md hover:opacity-90"
+                className="inline-flex items-center gap-1.5 px-6 py-3 rounded-full text-base font-bold font-body text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-md hover:opacity-90"
                 style={{
                   background: "linear-gradient(135deg, #004ac6 0%, #2563eb 100%)",
                   boxShadow: "0 4px 16px rgba(0, 74, 198, 0.25)",
