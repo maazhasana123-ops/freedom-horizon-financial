@@ -1,15 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants";
 import { MobileNav } from "./mobile-nav";
 
-// Pages whose hero section has a dark background — nav starts white
-const DARK_HERO_PAGES = ["/", "/mission", "/system"];
 
 /* FHF Logo SVG — wave + sun mark */
 function FHFLogoMark({ className }: { className?: string }) {
@@ -50,15 +47,27 @@ function FHFLogoMark({ className }: { className?: string }) {
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const pathname = usePathname();
-  const hasDarkHero = DARK_HERO_PAGES.includes(pathname);
 
   useEffect(() => {
     setMounted(true);
-    const handleScroll = () => setScrolled(window.scrollY > 32);
-    handleScroll(); // sync immediately on mount
+    let lastY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setScrolled(currentY > 32);
+      // Hide when scrolling down past 80px, show when scrolling up
+      if (currentY > 80) {
+        setHidden(currentY > lastY);
+      } else {
+        setHidden(false);
+      }
+      lastY = currentY;
+    };
+
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -69,36 +78,24 @@ export function Header() {
   }, [mobileOpen]);
 
   const isScrolled = mounted && scrolled;
-  // Show white nav text only when at top of a dark-hero page
-  const useLightNav = !isScrolled && hasDarkHero;
+  // Always light (white) nav text when not scrolled — header is always dark-glass at top
+  const useLightNav = !isScrolled;
 
   return (
     <>
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-30 transition-all duration-300",
+          hidden ? "-translate-y-full" : "translate-y-0"
         )}
-        style={
-          isScrolled
-            ? {
-                background: "rgba(244, 250, 255, 0.92)",
-                backdropFilter: "blur(16px)",
-                WebkitBackdropFilter: "blur(16px)",
-                boxShadow: "0 1px 0 rgba(195, 198, 215, 0.4)",
-              }
-            : useLightNav
-            ? {
-                background: "rgba(10, 22, 40, 0.15)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-              }
-            : {
-                background: "rgba(244, 250, 255, 0.92)",
-                backdropFilter: "blur(16px)",
-                WebkitBackdropFilter: "blur(16px)",
-                boxShadow: "0 1px 0 rgba(195, 198, 215, 0.3)",
-              }
-        }
+        style={{
+          background: isScrolled
+            ? "rgba(244, 250, 255, 0.75)"
+            : "rgba(10, 22, 40, 0.18)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          boxShadow: isScrolled ? "0 1px 0 rgba(195, 198, 215, 0.35)" : "none",
+        }}
       >
         {/* Bottom hairline — gradient tint, no solid border */}
         <div

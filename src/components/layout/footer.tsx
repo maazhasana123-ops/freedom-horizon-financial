@@ -4,7 +4,7 @@ import { FOOTER_NAV, COMPANY_INFO } from "@/lib/constants";
 
 function FHFLogoMarkSmall() {
   return (
-    <svg viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-6" aria-hidden="true">
+    <svg viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-9" aria-hidden="true">
       <ellipse cx="20" cy="15" rx="5.5" ry="5.5" fill="#7ab8d9" opacity="0.9" />
       <line x1="20" y1="6"  x2="20" y2="3"  stroke="#7ab8d9" strokeWidth="1.3" strokeLinecap="round" />
       <line x1="26.5" y1="8.5" x2="28.5" y2="5.5" stroke="#7ab8d9" strokeWidth="1.3" strokeLinecap="round" />
@@ -37,7 +37,7 @@ export function Footer() {
             <Link href="/" className="group inline-flex items-center gap-2.5 mb-6">
               <FHFLogoMarkSmall />
               <div>
-                <div className="font-display font-bold text-white text-base tracking-tight leading-none">
+                <div className="font-display font-bold text-white text-lg tracking-tight leading-none">
                   Freedom Horizon
                 </div>
                 <div className="text-eyebrow text-fhf-sky mt-0.5">Financial</div>
