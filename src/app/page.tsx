@@ -31,8 +31,8 @@ export default function HomePage() {
   return (
     <ScrollExpandMedia
       mediaSrc="/videos/hero.mp4"
-      posterSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
-      bgImageSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+      posterSrc="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
+      bgImageSrc="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
       title="Freedom Horizon"
       date="Your Financial Future"
       scrollToExpand="Scroll to explore"

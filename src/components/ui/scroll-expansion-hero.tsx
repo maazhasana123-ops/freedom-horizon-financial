@@ -143,7 +143,9 @@ export default function ScrollExpandMedia({
             muted
             loop
             playsInline
-            className="w-full h-full object-cover"
+            title=""
+            draggable={false}
+            className="w-full h-full object-cover pointer-events-none select-none"
           />
           {/* Brand tint overlay — fades as card expands */}
           <div
