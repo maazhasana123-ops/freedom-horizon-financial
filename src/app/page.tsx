@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
 
 function FadeIn({
   children,
@@ -28,87 +29,14 @@ function FadeIn({
 
 export default function HomePage() {
   return (
-    <>
-      {/* ══════════════════════════════════════
-          HERO
-      ══════════════════════════════════════ */}
-      <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{ background: "linear-gradient(to bottom, #1e40af 0%, #3b82f6 60%, #f59e0b 100%)" }}
-      >
-        {/* Background image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
-            alt=""
-            fill
-            className="object-cover"
-            style={{ opacity: 0.4, mixBlendMode: "overlay" }}
-            priority
-          />
-          <div className="absolute bottom-0 left-0 w-full h-32" style={{ background: "linear-gradient(to top, #f4faff, transparent)" }} />
-        </div>
-
-        {/* Sun ray radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] pointer-events-none z-[1] opacity-20">
-          <div className="w-full h-full" style={{ background: "radial-gradient(circle, rgba(255,221,184,0.4) 0%, rgba(0,0,0,0) 70%)" }} />
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
-          <motion.h1
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-black text-white drop-shadow-lg mb-8 tracking-tighter leading-[0.9]"
-            style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
-          >
-            Your Financial <br />
-            Freedom Starts <br />
-            at the <span style={{ color: "#ffddb8" }}>Horizon</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="font-body text-lg md:text-2xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed"
-            style={{ color: "rgba(239,246,255,0.9)" }}
-          >
-            We believe everyone deserves to understand how money works. Freedom
-            Horizon Financial is on a mission to educate, empower, and help
-            families build lasting wealth.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-            <Link
-              href="/mission"
-              className="w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg shadow-2xl hover:bg-blue-50 transition-all scale-95 hover:scale-100"
-              style={{ background: "#ffffff", color: "#004ac6" }}
-            >
-              Discover Our Mission
-            </Link>
-            <Link
-              href="/system"
-              className="w-full sm:w-auto px-10 py-5 rounded-full font-bold font-body text-lg transition-all hover:bg-white/10 flex items-center justify-center gap-2 text-white scale-95 hover:scale-100"
-              style={{ border: "2px solid rgba(255,255,255,0.4)", backdropFilter: "blur(4px)" }}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: "1.25rem" }}>
-                play_circle
-              </span>
-              Watch System Overview
-            </Link>
-          </motion.div>
-        </div>
-
-        {/* Horizon line motif */}
-        <div className="absolute bottom-0 left-0 w-full h-px blur-sm z-10 opacity-50" style={{ background: "linear-gradient(to right, transparent, #ffddb8, transparent)" }} />
-      </section>
-
+    <ScrollExpandMedia
+      mediaSrc="/images/hero.mp4"
+      posterSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+      bgImageSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+      title="Freedom Horizon"
+      date="Your Financial Future"
+      scrollToExpand="Scroll to explore"
+    >
       {/* ══════════════════════════════════════
           STATS
       ══════════════════════════════════════ */}
@@ -406,6 +334,6 @@ export default function HomePage() {
           </FadeIn>
         </div>
       </section>
-    </>
+    </ScrollExpandMedia>
   );
 }
