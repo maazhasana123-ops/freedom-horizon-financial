@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
 import { EcosystemFeatures } from "@/components/sections/ecosystem-features";
+import { MovementSection } from "@/components/sections/movement-section";
 
 function FadeIn({
   children,
@@ -145,6 +146,8 @@ export default function HomePage() {
           </FadeIn>
         </div>
       </section>
+
+      <MovementSection />
 
       {/* ══════════════════════════════════════
           CTA
