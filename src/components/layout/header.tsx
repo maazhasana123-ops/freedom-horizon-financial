@@ -111,7 +111,7 @@ export function Header() {
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-[4.5rem]">
+          <div className="flex items-center justify-between h-[4.5rem] lg:h-20">
 
             {/* Logo */}
             <Link
@@ -120,16 +120,16 @@ export function Header() {
               style={{ ["--tw-ring-color" as string]: "#004ac6" }}
               aria-label="Freedom Horizon Financial — Home"
             >
-              <FHFLogoMark className="w-10 h-8 flex-shrink-0" />
+              <FHFLogoMark className="w-14 h-11 flex-shrink-0" />
               <div className="leading-none">
                 <div
-                  className="font-display font-bold text-base tracking-tight leading-none transition-colors duration-300"
+                  className="font-display font-bold text-lg tracking-tight leading-none transition-colors duration-300"
                   style={{ color: useLightNav ? "#ffffff" : "#1a2d5a" }}
                 >
                   Freedom Horizon
                 </div>
                 <div
-                  className="text-eyebrow mt-0.5 transition-colors duration-300"
+                  className="text-eyebrow mt-1 transition-colors duration-300"
                   style={{ color: useLightNav ? "rgba(181,208,253,0.85)" : "#2e6db4" }}
                 >
                   Financial
