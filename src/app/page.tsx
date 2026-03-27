@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
+import { EcosystemFeatures } from "@/components/sections/ecosystem-features";
 
 function FadeIn({
   children,
@@ -117,147 +118,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          BENTO GRID
-      ══════════════════════════════════════ */}
-      <section className="py-32 overflow-hidden" style={{ background: "#ecf5fb" }}>
-        <div className="max-w-7xl mx-auto px-8">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <FadeIn className="max-w-2xl">
-              <span
-                className="inline-block px-4 py-1.5 rounded-full font-body font-bold text-xs uppercase tracking-widest mb-6"
-                style={{ background: "#b5d0fd", color: "#3e5980" }}
-              >
-                Our Ecosystem
-              </span>
-              <h2
-                className="font-display font-black tracking-tighter text-on-surface leading-tight"
-                style={{ fontSize: "clamp(2.5rem, 5vw, 3.75rem)", color: "#141d21" }}
-              >
-                The Freedom Horizon <br />Success System
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <p className="font-body text-xl max-w-sm font-medium leading-relaxed pb-2" style={{ color: "#434655" }}>
-                Our comprehensive approach combines modern tools with timeless principles to build your financial foundation.
-              </p>
-            </FadeIn>
-          </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6" style={{ minHeight: "700px" }}>
-            {/* Card 1 — col 4 */}
-            <FadeIn delay={0} className="md:col-span-4">
-              <div
-                className="group p-8 flex flex-col justify-between h-full transition-all duration-300 hover:text-white cursor-pointer"
-                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "320px" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#004ac6")}
-                onMouseLeave={e => (e.currentTarget.style.background = "#ffffff")}
-              >
-                <div>
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-white/20" style={{ background: "#e0e9ef" }}>
-                    <span className="material-symbols-outlined transition-colors duration-300 group-hover:text-white" style={{ color: "#004ac6" }}>school</span>
-                  </div>
-                  <h3 className="font-display font-bold text-2xl mb-4 transition-colors duration-300" style={{ color: "inherit" }}>Professional Development</h3>
-                  <p className="font-body leading-relaxed transition-colors duration-300 group-hover:text-white/80" style={{ color: "#434655" }}>
-                    Continuous training and certification programs for our field leaders and educators.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Card 2 — col 8 with image */}
-            <FadeIn delay={0.08} className="md:col-span-8">
-              <div
-                className="group p-8 flex flex-col md:flex-row gap-8 items-center h-full transition-all duration-300 cursor-pointer"
-                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "320px" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#2563eb")}
-                onMouseLeave={e => (e.currentTarget.style.background = "#ffffff")}
-              >
-                <div className="flex-1">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-white/20" style={{ background: "#e0e9ef" }}>
-                    <span className="material-symbols-outlined transition-colors duration-300 group-hover:text-white" style={{ color: "#004ac6" }}>devices</span>
-                  </div>
-                  <h3 className="font-display font-bold text-2xl mb-4 transition-colors duration-300 group-hover:text-white">Technology &amp; Marketing</h3>
-                  <p className="font-body leading-relaxed transition-colors duration-300 group-hover:text-white/80" style={{ color: "#434655" }}>
-                    Proprietary digital platforms and marketing engines designed to simplify complex financial concepts for every family.
-                  </p>
-                </div>
-                <div className="w-full md:w-64 h-48 rounded-xl overflow-hidden flex-shrink-0" style={{ background: "#ecf5fb" }}>
-                  <Image
-                    src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80"
-                    alt="Technology & Marketing"
-                    width={256}
-                    height={192}
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Card 3 — col 5 */}
-            <FadeIn delay={0.05} className="md:col-span-5">
-              <div
-                className="group p-8 flex flex-col justify-between h-full transition-all duration-300 cursor-pointer"
-                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "280px" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#996100")}
-                onMouseLeave={e => (e.currentTarget.style.background = "#ffffff")}
-              >
-                <div>
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-white/20" style={{ background: "#e0e9ef" }}>
-                    <span className="material-symbols-outlined transition-colors duration-300 group-hover:text-white" style={{ color: "#004ac6" }}>history_edu</span>
-                  </div>
-                  <h3 className="font-display font-bold text-2xl mb-4 transition-colors duration-300 group-hover:text-white">Decades of Experience</h3>
-                  <p className="font-body leading-relaxed transition-colors duration-300 group-hover:text-white/80" style={{ color: "#434655" }}>
-                    Backed by a leadership team with over 40 years of collective wisdom in the financial services industry.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Card 4 — col 4 */}
-            <FadeIn delay={0.1} className="md:col-span-4">
-              <div
-                className="group p-8 flex flex-col justify-between h-full transition-all duration-300 cursor-pointer"
-                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "280px" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#455f87")}
-                onMouseLeave={e => (e.currentTarget.style.background = "#ffffff")}
-              >
-                <div>
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-white/20" style={{ background: "#e0e9ef" }}>
-                    <span className="material-symbols-outlined transition-colors duration-300 group-hover:text-white" style={{ color: "#004ac6" }}>self_improvement</span>
-                  </div>
-                  <h3 className="font-display font-bold text-2xl mb-4 transition-colors duration-300 group-hover:text-white">Personal Development</h3>
-                  <p className="font-body leading-relaxed transition-colors duration-300 group-hover:text-white/80" style={{ color: "#434655" }}>
-                    Focusing on the psychological foundation required for long-term wealth building.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Card 5 — col 3 */}
-            <FadeIn delay={0.15} className="md:col-span-3">
-              <div
-                className="group p-8 flex flex-col justify-between h-full transition-all duration-300 cursor-pointer"
-                style={{ background: "#ffffff", borderRadius: "1rem", minHeight: "280px" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#784b00")}
-                onMouseLeave={e => (e.currentTarget.style.background = "#ffffff")}
-              >
-                <div>
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-white/20" style={{ background: "#e0e9ef" }}>
-                    <span className="material-symbols-outlined transition-colors duration-300 group-hover:text-white" style={{ color: "#004ac6" }}>settings_input_component</span>
-                  </div>
-                  <h3 className="font-display font-bold text-2xl mb-4 transition-colors duration-300 group-hover:text-white">System Powered</h3>
-                  <p className="font-body leading-relaxed transition-colors duration-300 group-hover:text-white/80" style={{ color: "#434655" }}>
-                    A repeatable, scalable system that removes guesswork from financial success.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+      <EcosystemFeatures />
 
       {/* ══════════════════════════════════════
           PROGRESS BAR
